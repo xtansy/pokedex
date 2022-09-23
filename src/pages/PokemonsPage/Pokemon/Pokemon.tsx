@@ -1,16 +1,20 @@
 import React from "react";
-import { useRequestPokemonQuery } from "../../../utils/api/hooks/pokemon";
 
 interface PokemonProps {
-    id: number;
+    pokemon: any;
 }
 
-const Pokemon: React.FC<PokemonProps> = ({ id }) => {
-    const pokemon = useRequestPokemonQuery(id);
-
-    console.log(pokemon);
-
-    return <div>{id}</div>;
+const Pokemon: React.FC<PokemonProps> = ({ pokemon }) => {
+    return (
+        <div className="shadow-md p-7 rounded mr-20 mb-20 ">
+            <img
+                className="w-full"
+                src={pokemon.sprites.front_default}
+                alt="pokemon img"
+            />
+            <h2 className="text-3xl">{pokemon.name}</h2>
+        </div>
+    );
 };
 
 export default Pokemon;

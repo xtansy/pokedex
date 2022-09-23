@@ -1,12 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQueries } from "@tanstack/react-query";
 import { requestPokemon } from "../../requests/pokemon/id";
 
-export const useRequestPokemonQuery = (id: number) => {
-    return useQuery(["pokemon"], () =>
-        requestPokemon({
-            params: {
-                id,
-            },
-        })
-    );
+export const useRequestPokemonQueries = (offset: number) => {
+    return useQueries({
+        queries: Array.from({ length: offset }).map((_, index) => ({
+            queryKey: ["pokemon", index + 1],
+            queryFn: () => requestPokemon({ params: { id: index + 1 } }),
+        })),
+    });
 };
