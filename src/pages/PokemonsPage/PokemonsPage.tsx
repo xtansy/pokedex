@@ -2,7 +2,7 @@ import { useState } from "react";
 import Pokemon from "./Pokemon/Pokemon";
 import { useRequestPokemonQueries } from "../../utils/api/hooks/pokemon";
 
-const PokemonsPage = () => {
+export const PokemonsPage = () => {
     const [offset, setOffset] = useState(20);
 
     const results = useRequestPokemonQueries(offset);
@@ -26,5 +26,3 @@ const PokemonsPage = () => {
         </div>
     );
 };
-
-export default PokemonsPage;

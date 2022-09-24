@@ -1,11 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 
-import PokemonsPage from "./pages/PokemonsPage/PokemonsPage";
+import { PokemonsPage, PokedexPage } from "./pages";
+import { ROUTES } from "./utils/constants";
 
 const App = () => {
     return (
         <Routes>
-            <Route path="/" element={<PokemonsPage />} />
+            <Route path={ROUTES.POKEMONS} element={<PokemonsPage />} />
+            <Route path={ROUTES.POKEDEX} element={<PokedexPage />} />
         </Routes>
     );
 };
