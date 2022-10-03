@@ -1,0 +1,6 @@
+.pokemon_block {
+    @apply shadow-md p-7 rounded mr-20 mb-20;
+}
+.pokemon_block img {
+    @apply h-[160px];
+}

@@ -1,27 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import Pokemon from "./Pokemon/Pokemon";
-import { useRequestPokemonQueries } from "../../utils/api/hooks/pokemon";
+import { useRequestPokemonInfiniteQuery } from "../../utils/api/hooks/pokemon";
+import { getPokemonId } from "../../utils/helpers";
+import PokemonInfo from "./PokemonInfo/PokemonInfo";
+import styles from "./PokemonsPage.module.css";
 
 export const PokemonsPage = () => {
-    const [offset, setOffset] = useState(20);
+    const [pokemonId, setPokemonId] = useState<Pokemon["id"] | null>(null);
 
-    const results = useRequestPokemonQueries(offset);
+    const { isLoading, data, fetchNextPage } = useRequestPokemonInfiniteQuery();
+    const { ref, inView } = useInView();
+    const pokemons = data?.pages.reduce(
+        (result: NamedAPIResource[], { data }) => [...result, ...data.results],
+        []
+    );
 
-    const pokemons = results.map((item) => item.data?.data);
+    useEffect(() => {
+        if (inView) {
+            fetchNextPage();
+        }
+    }, [inView]);
 
-    const isLoading = results.some((item) => item.isLoading);
-
-    if (isLoading) return null;
+    if (isLoading || !pokemons) return null;
 
     return (
         <div className="container mt-10">
-            <button onClick={() => setOffset(offset + 20)}>
-                ДОБАВИТЬ ЕЩЕ 20
-            </button>
-            <div className="flex justify-center flex-wrap">
+            <div className="flex justify-between flex-wrap">
                 {pokemons.map((item, i) => {
-                    return <Pokemon pokemon={item} key={i} />;
+                    const id = i + 1;
+                    return (
+                        <div
+                            key={i}
+                            onClick={() => setPokemonId(id)}
+                            className="relative"
+                        >
+                            <div className={styles.pokemon_infoblock}>
+                                <p>{getPokemonId(id)}</p>
+                                <h2>{item.name}</h2>
+                            </div>
+                            {pokemonId === id && <PokemonInfo id={id} />}
+                        </div>
+                    );
                 })}
+                <div ref={ref} />
             </div>
         </div>
     );

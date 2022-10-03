@@ -1,0 +1,45 @@
+.card {
+    @apply flex flex-col p-10 shadow-xl rounded-xl;
+}
+
+.card_header {
+    @apply flex  justify-between;
+}
+.card_header_types {
+    @apply flex mt-2;
+}
+
+.card_header_types li {
+    @apply mr-2 bg-slate-400 rounded-xl py-1 px-3 text-white;
+}
+
+.card_header_name {
+    @apply text-3xl capitalize font-bold;
+}
+
+.card_header_id {
+    @apply text-lg;
+}
+
+.card img {
+    @apply h-80;
+}
+
+.card_content {
+    @apply flex  justify-between;
+}
+
+.card_content_stats h2 {
+    @apply text-3xl capitalize font-bold  mb-2;
+}
+
+.card_content_abil h2 {
+    @apply text-3xl capitalize font-bold  mb-2;
+}
+
+.card_content_stats_ul li {
+    @apply flex items-center mb-2 border-b-2;
+}
+.card_content_abil_ul li {
+    @apply mb-2 border-b-2;
+}

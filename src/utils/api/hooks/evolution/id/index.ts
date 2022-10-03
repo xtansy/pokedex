@@ -1,18 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { requestEvolution } from "../../../requests";
 
-interface RequestEvolutionParams {
+interface UseRequestEvolutionQueryParams {
     id: number;
-    config?: any;
 }
 
 export const useRequestEvolutionQuery = ({
-    id,
+    params,
     config,
-}: RequestEvolutionParams) => {
+}: RequestQueryParams<UseRequestEvolutionQueryParams>) => {
     return useQuery(
-        ["evolution", id],
-        () => requestEvolution({ params: { id } }),
+        ["evolution", params.id],
+        () => requestEvolution({ params: { id: params.id } }),
         config
     );
 };

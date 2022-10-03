@@ -1,11 +1,35 @@
-import { useQueries } from "@tanstack/react-query";
-import { requestPokemon } from "../../requests/pokemon/id";
+import { requestPokemons, requestPokemon } from "../../requests";
+import { useInfiniteQuery, useQueries } from "@tanstack/react-query";
 
-export const useRequestPokemonQueries = (offset: number) => {
+interface UseRequestPokemonQueriesProps {
+    offset: number;
+}
+export const useRequestPokemonQueries = ({
+    params,
+    config,
+}: RequestQueryParams<UseRequestPokemonQueriesProps>) => {
     return useQueries({
-        queries: Array.from({ length: offset }).map((_, index) => ({
+        queries: Array.from({ length: params.offset }).map((_, index) => ({
             queryKey: ["pokemon", index + 1],
             queryFn: () => requestPokemon({ params: { id: index + 1 } }),
         })),
     });
+};
+
+const REQUEST_POKEMONS_LIMIT = 50;
+export const useRequestPokemonInfiniteQuery = () => {
+    return useInfiniteQuery(
+        ["pokemon"],
+        ({ pageParam = 0 }) =>
+            requestPokemons({
+                params: { offset: pageParam, limit: REQUEST_POKEMONS_LIMIT },
+            }),
+        {
+            getNextPageParam: (lastPage, allPages) => {
+                const pokemonCount = allPages.length * REQUEST_POKEMONS_LIMIT;
+                const hasNextPage = pokemonCount < lastPage.data.count;
+                if (hasNextPage) return pokemonCount;
+            },
+        }
+    );
 };

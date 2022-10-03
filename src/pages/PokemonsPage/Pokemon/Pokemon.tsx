@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Pokemon.module.css";
 
 interface PokemonProps {
     pokemon: any;
@@ -6,7 +7,7 @@ interface PokemonProps {
 
 const Pokemon: React.FC<PokemonProps> = ({ pokemon }) => {
     return (
-        <div className="shadow-md p-7 rounded mr-20 mb-20 ">
+        <div className={styles.pokemon_block}>
             <img
                 className="w-full"
                 src={pokemon.sprites.front_default}
