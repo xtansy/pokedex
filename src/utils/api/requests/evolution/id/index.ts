@@ -7,4 +7,4 @@ interface RequestEvolutionParams {
 }
 
 export const requestEvolution = ({ config, params }: RequestEvolutionParams) =>
-    api.get(`evolution-chain/${params.id}`, { ...config });
+    api.get<EvolutionChain>(`evolution-chain/${params.id}`, { ...config });

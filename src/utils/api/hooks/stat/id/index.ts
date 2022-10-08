@@ -6,13 +6,6 @@ interface UseRequestStatQueryParams {
     id: number;
 }
 
-export const useRequestStatQuery = ({
-    params,
-    config,
-}: RequestQueryParams<UseRequestStatQueryParams>) => {
-    return useQuery(
-        ["stat", params.id],
-        () => requestStat({ params: { id: params.id } }),
-        config
-    );
+export const useRequestStatQuery = ({ id }: UseRequestStatQueryParams) => {
+    return useQuery(["stat", id], () => requestStat({ params: { id } }));
 };

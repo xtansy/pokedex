@@ -1,0 +1,6 @@
+.pokemon_stats h2 {
+    @apply text-3xl capitalize font-bold  mb-2;
+}
+.pokemon_stats_ul li {
+    @apply mb-2 border-b-2;
+}

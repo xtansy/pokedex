@@ -1,0 +1,7 @@
+.register {
+    @apply flex justify-center items-center h-screen;
+}
+
+.register form {
+    @apply flex flex-col gap-3;
+}

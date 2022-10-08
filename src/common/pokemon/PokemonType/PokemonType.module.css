@@ -1,0 +1,20 @@
+.pokemon_type {
+    @apply mr-2 rounded-xl py-1 px-3;
+}
+
+.grass {
+    @apply border-2 border-lime-500 text-lime-500;
+}
+.poison {
+    @apply border-2 border-violet-500 text-violet-500;
+}
+.fire {
+    @apply border-2 border-amber-500 text-amber-500;
+}
+.normal {
+    @apply border-2 border-gray-500 text-gray-500;
+}
+.flying {
+    @apply border-2 border-blue-500 text-blue-500;
+    
+}

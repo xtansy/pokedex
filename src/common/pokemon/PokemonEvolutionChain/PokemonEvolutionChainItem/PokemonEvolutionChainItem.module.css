@@ -1,0 +1,6 @@
+.evolution_item {
+    @apply shadow-2xl rounded p-1 border-2 ml-2 mb-2;
+}
+.evolution_item_active {
+    @apply border-orange-300;
+}

@@ -3,8 +3,8 @@ import { useInView } from "react-intersection-observer";
 import Pokemon from "./Pokemon/Pokemon";
 import { useRequestPokemonInfiniteQuery } from "../../utils/api/hooks/pokemon";
 import { getPokemonId } from "../../utils/helpers";
-import PokemonInfo from "./PokemonInfo/PokemonInfo";
 import styles from "./PokemonsPage.module.css";
+import { PokemonInfo } from "../../common";
 
 export const PokemonsPage = () => {
     const [pokemonId, setPokemonId] = useState<Pokemon["id"] | null>(null);
@@ -30,16 +30,22 @@ export const PokemonsPage = () => {
                 {pokemons.map((item, i) => {
                     const id = i + 1;
                     return (
-                        <div
-                            key={i}
-                            onClick={() => setPokemonId(id)}
-                            className="relative"
-                        >
-                            <div className={styles.pokemon_infoblock}>
-                                <p>{getPokemonId(id)}</p>
-                                <h2>{item.name}</h2>
+                        <div key={i}>
+                            <div
+                                onClick={() => setPokemonId(id)}
+                                // className="relative"
+                            >
+                                <div className={styles.pokemon_infoblock}>
+                                    <p>{getPokemonId(id)}</p>
+                                    <h2>{item.name}</h2>
+                                </div>
                             </div>
-                            {pokemonId === id && <PokemonInfo id={id} />}
+                            {pokemonId === id && (
+                                <PokemonInfo
+                                    onClose={() => setPokemonId(null)}
+                                    id={id}
+                                />
+                            )}
                         </div>
                     );
                 })}

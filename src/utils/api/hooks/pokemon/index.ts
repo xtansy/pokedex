@@ -5,13 +5,12 @@ interface UseRequestPokemonQueriesProps {
     offset: number;
 }
 export const useRequestPokemonQueries = ({
-    params,
-    config,
-}: RequestQueryParams<UseRequestPokemonQueriesProps>) => {
+    offset,
+}: UseRequestPokemonQueriesProps) => {
     return useQueries({
-        queries: Array.from({ length: params.offset }).map((_, index) => ({
+        queries: Array.from({ length: offset }).map((_, index) => ({
             queryKey: ["pokemon", index + 1],
-            queryFn: () => requestPokemon({ params: { id: index + 1 } }),
+            queryFn: () => requestPokemon({ params: { idOrName: index + 1 } }),
         })),
     });
 };

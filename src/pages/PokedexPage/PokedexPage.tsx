@@ -13,7 +13,7 @@ export const PokedexPage = () => {
 
     const [selectedPokemonId, setSelectedPokemonId] = useState(1);
 
-    const results = useRequestPokemonQueries({ params: { offset } });
+    const results = useRequestPokemonQueries({ offset });
 
     const isLoading = results.some((item) => item.isLoading);
 
