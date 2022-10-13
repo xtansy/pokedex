@@ -1,7 +1,36 @@
 .register {
-    @apply flex justify-center items-center h-screen;
+    @apply flex w-full flex-col gap-20;
 }
 
 .register form {
-    @apply flex flex-col gap-3;
+    @apply flex flex-col gap-2 px-6;
+}
+
+.title {
+    @apply text-3xl mb-7 text-center font-semibold;
+}
+
+.cover {
+    @apply bg-cover;
+    @apply w-full h-56 rounded-b-3xl mb-14;
+}
+
+@screen md {
+    .register {
+        @apply justify-center items-center h-screen;
+    }
+
+    .register form {
+        @apply w-96;
+    }
+
+    .card {
+        @apply rounded-lg shadow-2xl;
+        @apply flex flex-row items-center;
+        @apply h-[592px] w-[925px];
+    }
+
+    .cover {
+        @apply mb-0 rounded-none h-full rounded-l-lg;
+    }
 }

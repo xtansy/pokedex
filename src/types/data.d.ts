@@ -13,8 +13,7 @@
 // };
 type User = {
     email: string;
-    firstName: string;
-    lastName: string;
+    name: string;
     city: string;
 };
 

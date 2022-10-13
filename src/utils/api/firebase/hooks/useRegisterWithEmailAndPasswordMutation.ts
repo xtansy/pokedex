@@ -11,6 +11,7 @@ export const useRegisterWithEmailAndPasswordMutation = (
     return useMutation(
         ["signUp"],
         (user: RequestParams<useRegisterWithEmailAndPasswordMutationProps>) =>
-            registerWithEmailAndPassword(user, user.password)
+            registerWithEmailAndPassword(user, user.password),
+        settings?.options
     );
 };

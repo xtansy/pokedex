@@ -12,6 +12,7 @@ export const useLogInWithEmailAndPasswordMutation = (
     return useMutation(
         ["signIn"],
         (user: RequestParams<useLogInWithEmailAndPasswordMutationProps>) =>
-            logInWithEmailAndPassword(user.email, user.password)
+            logInWithEmailAndPassword(user.email, user.password),
+        settings?.options
     );
 };

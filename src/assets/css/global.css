@@ -5,9 +5,11 @@
 body {
     font-family: "Fira Sans", sans-serif;
     @apply font-normal;
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
     @apply bg-gray-100;
+}
+
+:root {
+    --image-cover: url("../img/cover.jpg");
 }
