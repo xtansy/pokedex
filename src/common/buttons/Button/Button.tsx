@@ -21,7 +21,8 @@ export const Button: React.FC<ButtonProps> = ({
     });
     return (
         <button {...props} className={classes}>
-            {children}
+            {!loading && children}
+            {loading && "загрузка..."}
         </button>
     );
 };
