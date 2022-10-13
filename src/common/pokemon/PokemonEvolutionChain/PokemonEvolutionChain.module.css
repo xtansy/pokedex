@@ -1,0 +1,6 @@
+.evolution {
+    @apply flex items-center justify-between flex-wrap;
+}
+.evolution_title {
+    @apply mt-10 text-3xl capitalize font-bold  mb-2;
+}

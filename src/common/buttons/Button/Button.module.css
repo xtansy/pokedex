@@ -1,0 +1,28 @@
+.button {
+    @apply flex justify-center items-center min-h-[50px] rounded-3xl bg-teal-500 text-white mt-3 w-full;
+}
+.contained,
+.contained[type="button"],
+.contained[type="reset"],
+.contained[type="submit"] {
+    @apply bg-blue-500 text-white;
+    @apply hover:bg-blue-400;
+}
+
+.outlined,
+.outlined[type="button"],
+.outlined[type="reset"],
+.outlined[type="submit"] {
+    @apply border-[1px] border-blue-500 bg-inherit text-blue-500;
+    @apply hover:border-blue-400 hover:text-blue-400;
+    @apply active:border-blue-500 active:text-blue-500;
+}
+
+.text,
+.text[type="button"],
+.text[type="reset"],
+.text[type="submit"] {
+    @apply bg-inherit text-neutral-500 shadow-none;
+    @apply hover:text-neutral-400;
+    @apply active:text-neutral-500;
+}

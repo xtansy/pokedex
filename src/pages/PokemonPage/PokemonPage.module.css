@@ -1,0 +1,21 @@
+.page {
+    @apply p-6;
+}
+.page_header {
+    @apply flex items-center;
+}
+.page_header p {
+    @apply mr-5;
+}
+
+.page_header h1 {
+    @apply text-3xl;
+}
+.page_img {
+    @apply w-full;
+}
+.page_img img {
+    @apply h-[300px] my-0 mx-auto;
+}
+.page_buttons {
+}
