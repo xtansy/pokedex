@@ -12,10 +12,26 @@ interface SignInProps {
 }
 
 export const SignInForm = () => {
-    const { register, handleSubmit, formState } = useForm<SignInProps>();
+    const { register, handleSubmit, formState, setError } =
+        useForm<SignInProps>();
     const { isSubmitting, errors } = formState;
     const { mutate, isLoading: logInWithEmailAndPasswordMutationLoading } =
-        useLogInWithEmailAndPasswordMutation();
+        useLogInWithEmailAndPasswordMutation({
+            options: {
+                onError: (err: Error) => {
+                    setError(
+                        "email",
+                        {
+                            type: "custom",
+                            message: "Custom Error",
+                        },
+                        {
+                            shouldFocus: true,
+                        }
+                    );
+                },
+            },
+        });
 
     const isLoading = isSubmitting || logInWithEmailAndPasswordMutationLoading;
 
