@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Layout from "./features/layout/Layout";
+
 import { PokemonsPage, PokedexPage, PokemonPage, Auth } from "./pages";
+import Layout from "./features/layout/Layout";
 import { ROUTES } from "./utils/constants";
 
 const App = () => {

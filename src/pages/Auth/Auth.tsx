@@ -3,7 +3,7 @@ import { SignInForm } from "./SignInForm";
 import { SignUpForm } from "./SignUpForm";
 
 export const Auth = () => {
-    const isAuth = true;
+    const isAuth = false;
 
     return (
         <div className={styles.register}>

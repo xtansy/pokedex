@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
-import styles from "./Auth.module.css";
+import { useNavigate } from "react-router-dom";
 
+import styles from "./Auth.module.css";
 import { Button } from "../../common/buttons";
 import { Input } from "../../common/fields";
 import {
@@ -10,17 +11,43 @@ import {
     citySchema,
 } from "../../utils/constants";
 import { useRegisterWithEmailAndPasswordMutation } from "../../utils/api/firebase/hooks";
+import { useStore } from "../../utils/contexts";
+import { ROUTES } from "../../utils/constants/";
 
 interface SignUpProps extends User {
     password: string;
 }
 
 export const SignUpForm = () => {
-    const { register, handleSubmit, formState } = useForm<SignUpProps>();
+    const navigate = useNavigate();
+    const { changeSession } = useStore();
+
+    const { register, handleSubmit, formState, setError } =
+        useForm<SignUpProps>();
+
     const { isSubmitting, errors } = formState;
 
     const { mutate, isLoading: registerWithEmailAndPasswordMutationLoading } =
-        useRegisterWithEmailAndPasswordMutation();
+        useRegisterWithEmailAndPasswordMutation({
+            options: {
+                onSuccess: () => {
+                    changeSession({ isAuth: true });
+                    navigate(ROUTES.POKEMONS);
+                },
+                onError: (err: Error) => {
+                    setError(
+                        "email",
+                        {
+                            type: "custom",
+                            message: "Custom Error",
+                        },
+                        {
+                            shouldFocus: true,
+                        }
+                    );
+                },
+            },
+        });
 
     const onSubmit = handleSubmit((user) => mutate(user));
 
