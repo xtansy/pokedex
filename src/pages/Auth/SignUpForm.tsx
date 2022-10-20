@@ -10,7 +10,7 @@ import {
     passwordSchema,
     citySchema,
 } from "../../utils/constants";
-import { useRegisterWithEmailAndPasswordMutation } from "../../utils/api/firebase/hooks";
+import { useRegisterWithEmailAndPasswordMutation } from "../../utils/firebase/hooks";
 import { useStore } from "../../utils/contexts";
 import { ROUTES } from "../../utils/constants/";
 

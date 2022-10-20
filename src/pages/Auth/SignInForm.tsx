@@ -4,7 +4,8 @@ import styles from "./Auth.module.css";
 import { Button } from "../../common/buttons";
 import { Input } from "../../common/fields";
 import { emailSchema, passwordSchema } from "../../utils/constants";
-import { useLogInWithEmailAndPasswordMutation } from "../../utils/api/firebase/hooks";
+import { useLogInWithEmailAndPasswordMutation } from "../../utils/firebase/hooks";
+import { useStore } from "../../utils/contexts";
 
 interface SignInProps {
     email: User["email"];
@@ -12,6 +13,9 @@ interface SignInProps {
 }
 
 export const SignInForm = () => {
+    const store = useStore();
+    console.log(store);
+
     const { register, handleSubmit, formState, setError } =
         useForm<SignInProps>();
     const { isSubmitting, errors } = formState;

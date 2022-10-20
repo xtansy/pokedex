@@ -16,9 +16,14 @@ export const Button: React.FC<ButtonProps> = ({
     startIcon,
     ...props
 }) => {
-    const classes = classnames(styles.button, styles[variant], {
-        [styles.button_loading]: loading,
-    });
+    const classes = classnames(
+        styles.button,
+        props.className,
+        styles[variant],
+        {
+            [styles.button_loading]: loading,
+        }
+    );
     return (
         <button {...props} className={classes}>
             {!loading && children}

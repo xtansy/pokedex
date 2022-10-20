@@ -1,9 +1,11 @@
 import { createContext, Dispatch, SetStateAction } from "react";
+import { User } from "firebase/auth";
 
 export type Store = {
     session: {
         isAuth: boolean;
     };
+    user: User | null;
 };
 
 export interface StoreContextProps {
@@ -16,6 +18,7 @@ export const StoreContext = createContext<StoreContextProps>({
         session: {
             isAuth: false,
         },
+        user: null,
     },
     setStore: () => {},
 });
