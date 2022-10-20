@@ -37,6 +37,7 @@ const App = () => {
                             path={ROUTES.POKEMON}
                             element={<PokemonPage />}
                         />
+                        <Route path="*" element={<PokemonPage />} />
                     </Route>
                 </Routes>
             )}
