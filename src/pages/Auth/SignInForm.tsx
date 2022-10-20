@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
 import styles from "./Auth.module.css";
+import { useNavigate } from "react-router-dom";
 
 import { Button } from "../../common/buttons";
 import { Input } from "../../common/fields";
 import { emailSchema, passwordSchema } from "../../utils/constants";
 import { useLogInWithEmailAndPasswordMutation } from "../../utils/firebase/hooks";
 import { useStore } from "../../utils/contexts";
+import { ROUTES } from "../../utils/constants";
 
 interface SignInProps {
     email: User["email"];
@@ -13,9 +15,7 @@ interface SignInProps {
 }
 
 export const SignInForm = () => {
-    const store = useStore();
-    console.log(store);
-
+    const navigate = useNavigate();
     const { register, handleSubmit, formState, setError } =
         useForm<SignInProps>();
     const { isSubmitting, errors } = formState;
@@ -33,6 +33,9 @@ export const SignInForm = () => {
                             shouldFocus: true,
                         }
                     );
+                },
+                onSuccess: () => {
+                    navigate(ROUTES.POKEMONS);
                 },
             },
         });

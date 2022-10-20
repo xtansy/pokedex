@@ -18,12 +18,10 @@ export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
 
     useEffect(() => {
         if (user) {
-            setStore((oldstate) => {
-                return {
-                    ...oldstate,
-                    session: { ...oldstate.session, isAuth: true },
-                    user,
-                };
+            setStore({
+                ...store,
+                session: { isAuth: true },
+                user,
             });
         }
     }, [user]);

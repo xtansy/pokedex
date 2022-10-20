@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 export const useAuthState = () => {
     const [user, setUser] = useState<null | User>(null);
 
+    console.log(user);
+
     useEffect(() => {
         const listener = onAuthStateChanged(auth, async (user) => {
             setUser(user);

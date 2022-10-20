@@ -59,6 +59,7 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ id, onClose }) => {
                 >
                     OPEN
                 </Button>
+                <Button onClick={() => {}}>ADD TO TEAM</Button>
             </div>
         </div>
     );
