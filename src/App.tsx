@@ -1,6 +1,12 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import { PokemonsPage, PokedexPage, PokemonPage, Auth } from "./pages";
+import {
+    PokemonsPage,
+    PokedexPage,
+    PokemonPage,
+    Auth,
+    ProfilePage,
+} from "./pages";
 import Layout from "./features/layout/Layout";
 import { ROUTES } from "./utils/constants";
 import { useStore } from "./utils/contexts";
@@ -37,7 +43,8 @@ const App = () => {
                             path={ROUTES.POKEMON}
                             element={<PokemonPage />}
                         />
-                        <Route path="*" element={<PokemonPage />} />
+                        <Route path={ROUTES.USER} element={<ProfilePage />} />
+                        <Route path={ROUTES.AUTH} element={<Auth />} />
                     </Route>
                 </Routes>
             )}

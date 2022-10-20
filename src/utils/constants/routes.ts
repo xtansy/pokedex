@@ -3,4 +3,5 @@ export const ROUTES = {
     POKEDEX: "/pokedex",
     POKEMON: "/pokemon/:pokemonid",
     AUTH: "/auth",
+    USER: "/user",
 };

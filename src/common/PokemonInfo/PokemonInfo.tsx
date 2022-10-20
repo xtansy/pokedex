@@ -4,6 +4,8 @@ import { getPokemonId } from "../../utils/helpers";
 import { PokemonStats, PokemonTypes } from "../";
 import { Button } from "../buttons";
 import styles from "./PokemonInfo.module.css";
+import { useAddDocumentMutation } from "../../utils/firebase/hooks";
+import { useStore } from "../../utils/contexts";
 
 interface PokemonInfoProps {
     id: number;
@@ -11,8 +13,13 @@ interface PokemonInfoProps {
 }
 
 export const PokemonInfo: React.FC<PokemonInfoProps> = ({ id, onClose }) => {
+    const { session } = useStore();
+
     const navigate = useNavigate();
+
     const { data, isLoading } = useRequestPokemonQuery({ idOrName: id });
+
+    const { mutate } = useAddDocumentMutation();
 
     if (isLoading || !data) return null;
 
@@ -59,6 +66,15 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ id, onClose }) => {
                 >
                     OPEN
                 </Button>
+                {session.isAuth && (
+                    <Button
+                        onClick={() => {
+                            mutate({ collection: "pokemons", data: pokemon });
+                        }}
+                    >
+                        ADD TO TEAM
+                    </Button>
+                )}
             </div>
         </div>
     );

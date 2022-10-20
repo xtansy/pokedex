@@ -20,6 +20,9 @@ export const Header = () => {
                     <li>
                         <Link to={ROUTES.POKEDEX}>Pokedex</Link>
                     </li>
+                    <li>
+                        <Link to={ROUTES.USER}>Profile</Link>
+                    </li>
                 </ul>
             </div>
         </div>

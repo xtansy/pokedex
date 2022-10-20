@@ -9,7 +9,6 @@ export const useRequestPokemonQuery = (
     params: RequestParams<UseRequestPokemonQueryParams>,
     settings?: RequestQuerySettings<typeof requestPokemon>
 ) => {
-    console.log(params.idOrName);
     return useQuery(
         ["pokemon", params.idOrName],
         () =>
