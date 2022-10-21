@@ -45,7 +45,7 @@ export const PokemonEvolutionChain: React.FC<PokemonEvolutionChainProps> = ({
                     return (
                         <PokemonEvolutionChainItem
                             key={i}
-                            pokemonName={item.name}
+                            idOrName={item.name}
                             isActive={pokemonName === item.name}
                         />
                     );

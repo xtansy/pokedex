@@ -4,15 +4,15 @@ import classNames from "classnames";
 import styles from "./PokemonEvolutionChainItem.module.css";
 
 interface PokemonEvolutionChainItemProps {
-    pokemonName: Pokemon["name"];
-    isActive: boolean;
+    idOrName: Pokemon["name"];
+    isActive?: boolean;
 }
 export const PokemonEvolutionChainItem: React.FC<
     PokemonEvolutionChainItemProps
-> = ({ pokemonName, isActive }) => {
+> = ({ idOrName, isActive }) => {
     const navigate = useNavigate();
     const { data, isLoading } = useRequestPokemonQuery({
-        idOrName: pokemonName,
+        idOrName,
     });
 
     if (isLoading || !data) return null;

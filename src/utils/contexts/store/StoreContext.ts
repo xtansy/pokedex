@@ -5,7 +5,7 @@ export type Store = {
     session: {
         isAuth: boolean;
     };
-    user: User | null;
+    user: User;
 };
 
 export interface StoreContextProps {
@@ -13,12 +13,14 @@ export interface StoreContextProps {
     setStore: Dispatch<SetStateAction<Store>>;
 }
 
-export const StoreContext = createContext<StoreContextProps>({
-    store: {
-        session: {
-            isAuth: false,
-        },
-        user: null,
+export const INITIAL_STORE = {
+    session: {
+        isAuth: false,
     },
+    user: {} as User,
+};
+
+export const StoreContext = createContext<StoreContextProps>({
+    store: INITIAL_STORE,
     setStore: () => {},
 });

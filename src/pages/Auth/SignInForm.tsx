@@ -34,9 +34,6 @@ export const SignInForm = () => {
                         }
                     );
                 },
-                onSuccess: () => {
-                    navigate(ROUTES.POKEMONS);
-                },
             },
         });
 

@@ -13,7 +13,7 @@ interface PokemonInfoProps {
 }
 
 export const PokemonInfo: React.FC<PokemonInfoProps> = ({ id, onClose }) => {
-    const { session } = useStore();
+    const { session, user } = useStore();
 
     const navigate = useNavigate();
 
@@ -66,10 +66,13 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ id, onClose }) => {
                 >
                     OPEN
                 </Button>
-                {session.isAuth && (
+                {session.isAuth && user && (
                     <Button
                         onClick={() => {
-                            mutate({ collection: "pokemons", data: pokemon });
+                            mutate({
+                                collection: "pokemons",
+                                data: { pokemonId: pokemon.id, uid: user.uid },
+                            });
                         }}
                     >
                         ADD TO TEAM

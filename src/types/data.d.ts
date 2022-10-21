@@ -16,14 +16,11 @@ type User = {
     name: string;
     city: string;
 };
-
-interface UserDocument extends User {}
-
 interface PokemonDocument {
     uid: User["uid"];
-    name: Pokemon["name"];
-    id: Pokemon["id"];
+    pokemonId: Pokemon["id"];
 }
+interface UserDocument extends User {}
 
 /**
  * The name and the URL of the referenced resource

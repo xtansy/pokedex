@@ -15,7 +15,7 @@ export const AuthApp = () => {
     return (
         <Routes>
             <Route path={ROUTES.AUTH} element={<Auth />} />
-            {/* <Route path="*" element={<Navigate to={ROUTES.AUTH} />} /> */}
+            <Route path="*" element={<Navigate to={ROUTES.AUTH} />} />
         </Routes>
     );
 };
@@ -31,10 +31,7 @@ const App = () => {
             {isAuth && (
                 <Routes>
                     <Route element={<Layout />}>
-                        <Route
-                            path={ROUTES.POKEMONS}
-                            element={<PokemonsPage />}
-                        />
+                        <Route path="*" element={<PokemonsPage />} />
                         <Route
                             path={ROUTES.POKEDEX}
                             element={<PokedexPage />}
@@ -44,7 +41,6 @@ const App = () => {
                             element={<PokemonPage />}
                         />
                         <Route path={ROUTES.USER} element={<ProfilePage />} />
-                        <Route path={ROUTES.AUTH} element={<Auth />} />
                     </Route>
                 </Routes>
             )}

@@ -30,10 +30,10 @@ export const SignUpForm = () => {
     const { mutate, isLoading: registerWithEmailAndPasswordMutationLoading } =
         useRegisterWithEmailAndPasswordMutation({
             options: {
-                onSuccess: () => {
-                    changeSession({ isAuth: true });
-                    navigate(ROUTES.POKEMONS);
-                },
+                // onSuccess: () => {
+                //     changeSession({ isAuth: true });
+                //     navigate(ROUTES.POKEMONS);
+                // },
                 onError: (err: Error) => {
                     setError(
                         "email",

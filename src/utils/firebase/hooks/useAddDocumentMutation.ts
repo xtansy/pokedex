@@ -3,10 +3,12 @@ import { addDocument } from "../requests";
 
 type Collection = "pokemons";
 
-interface useAddDocumentMutationProps {
-    collection: Collection;
-    data: any;
+interface useAddDocumentPokemonMutationProps {
+    collection: Extract<Collection, "pokemons">;
+    data: PokemonDocument;
 }
+
+type useAddDocumentMutationProps = useAddDocumentPokemonMutationProps;
 
 export const useAddDocumentMutation = (
     settings?: RequestMutationSettings<typeof addDocument>

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import { StoreContext, Store } from "./StoreContext";
+import { StoreContext, Store, INITIAL_STORE } from "./StoreContext";
 
 export const useStore = () => {
     const { store, setStore } = useContext(StoreContext);
@@ -12,8 +12,13 @@ export const useStore = () => {
         });
     };
 
+    const logoutClearStore = () => {
+        setStore(INITIAL_STORE);
+    };
+
     return {
         ...store,
         changeSession,
+        logoutClearStore,
     };
 };
