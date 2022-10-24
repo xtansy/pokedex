@@ -1,23 +1,45 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { User } from "firebase/auth";
 
 import { auth } from "../instance";
-import { Store } from "../../contexts";
+import { usePromise } from "../../hooks";
 
 // hook for get user
 export const useAuthState = () => {
-    const [user, setUser] = useState<Store["user"]>({} as User);
+    const {
+        data,
+        setData,
+        setError,
+        isError,
+        isLoading,
+        errorMessage,
+        setLoading,
+    } = usePromise<User>();
 
     useEffect(() => {
-        const listener = onAuthStateChanged(auth, async (user) => {
-            setUser(user as User);
-        });
+        const listener = onAuthStateChanged(
+            auth,
+            async (user) => {
+                if (!user) return setLoading(false);
+                setData(user);
+            },
+            (error) => {
+                setError(error.message);
+            }
+        );
 
         return () => {
             listener();
         };
     }, [auth]);
 
-    return { user };
+    return {
+        user: data,
+        setData,
+        setError,
+        isError,
+        isLoading,
+        errorMessage,
+        setLoading,
+    };
 };

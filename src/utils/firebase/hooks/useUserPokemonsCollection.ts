@@ -1,4 +1,3 @@
-import { User } from "firebase/auth";
 import { collection, query, where, Query } from "firebase/firestore";
 
 import { useCollection } from "../hooks";

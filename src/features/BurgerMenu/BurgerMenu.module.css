@@ -1,0 +1,24 @@
+.burgerMenu {
+    @apply absolute min-h-full min-w-full right-0 overflow-hidden bg-white top-0;
+}
+.burgerMenu_block {
+    @apply mt-20 flex flex-col items-center p-4;
+}
+
+.burgerMenu_block_profile {
+    @apply shadow-2xl rounded-lg    p-10;
+}
+
+.burger_lines {
+    @apply absolute right-5 top-5 p-4 space-y-2 bg-gray-600 rounded shadow w-min;
+}
+.burger_lines_active {
+    @apply absolute right-5 top-5 p-4 space-y-2 rounded shadow w-min bg-sky-400;
+}
+
+.burgerMenu_block_nav  {
+    @apply self-start mt-7;
+}
+.burgerMenu_block_nav ul {
+    @apply flex flex-col items-start;
+}

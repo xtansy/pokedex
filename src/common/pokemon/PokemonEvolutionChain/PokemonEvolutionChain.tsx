@@ -1,6 +1,6 @@
-import { useRequestEvolutionQuery } from "./../../../utils/api";
-import { PokemonEvolutionChainItem } from "./PokemonEvolutionChainItem/PokemonEvolutionChainItem";
 import styles from "./PokemonEvolutionChain.module.css";
+import { useRequestEvolutionQuery } from "./../../../utils/api";
+import { PokemonShortCard } from "../PokemonShortCard/PokemonShortCard";
 
 interface PokemonEvolutionChainProps {
     pokemonName: Pokemon["name"];
@@ -43,7 +43,7 @@ export const PokemonEvolutionChain: React.FC<PokemonEvolutionChainProps> = ({
             <div className={styles.evolution}>
                 {evolutionChain.map((item, i) => {
                     return (
-                        <PokemonEvolutionChainItem
+                        <PokemonShortCard
                             key={i}
                             idOrName={item.name}
                             isActive={pokemonName === item.name}

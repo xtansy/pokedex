@@ -13,3 +13,7 @@ body {
 :root {
     --image-cover: url("../img/cover.jpg");
 }
+
+.title {
+    @apply text-3xl capitalize font-bold;
+}

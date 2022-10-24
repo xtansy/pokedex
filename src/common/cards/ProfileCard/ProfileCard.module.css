@@ -1,0 +1,10 @@
+
+.profile_img {
+    @apply w-full rounded-lg;
+}
+.profile_info {
+    @apply flex w-full justify-center;
+}
+.profile_info_user {
+    @apply ml-5;
+}

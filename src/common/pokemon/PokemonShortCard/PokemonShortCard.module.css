@@ -1,0 +1,7 @@
+.shortCard {
+    @apply flex items-center shadow-2xl rounded-lg p-1 bg-white ml-2 mb-2 w-full border-2;
+}
+
+.shortCard_active {
+    @apply border-orange-300;
+}

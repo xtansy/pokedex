@@ -1,0 +1,12 @@
+.profile {
+    @apply flex flex-col items-center p-4;
+}
+.profile__header {
+    @apply flex flex-col  p-4 shadow-2xl rounded-lg border-2  w-full ;
+}
+.profile__content_items {
+    @apply flex flex-wrap;
+}
+.profile__content_items_item {
+    @apply w-full;
+}

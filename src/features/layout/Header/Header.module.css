@@ -1,5 +1,5 @@
 .header_container {
-    @apply w-full px-[250px] py-[30px] flex items-center justify-between border-b-4;
+    @apply w-full px-20 py-[30px] flex items-center justify-between border-b-4;
 }
 
 .header__left {
@@ -10,9 +10,9 @@
     @apply mr-5;
 }
 
-.header__right ul {
+.header__right_links {
     @apply flex items-center;
 }
-.header__right ul li {
+.header__right_links li {
     @apply ml-5;
 }

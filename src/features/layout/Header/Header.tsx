@@ -1,6 +1,7 @@
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../utils/constants";
+import { BurgerMenu } from "../../BurgerMenu/BurgerMenu";
 
 export const Header = () => {
     return (
@@ -13,7 +14,7 @@ export const Header = () => {
                 />
             </div>
             <div className={styles.header__right}>
-                <ul>
+                <ul className={styles.header__right_links}>
                     <li>
                         <Link to={ROUTES.POKEMONS}>Pokemons</Link>
                     </li>
@@ -24,6 +25,7 @@ export const Header = () => {
                         <Link to={ROUTES.USER}>Profile</Link>
                     </li>
                 </ul>
+                <BurgerMenu />
             </div>
         </div>
     );

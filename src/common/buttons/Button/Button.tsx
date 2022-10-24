@@ -6,7 +6,7 @@ type ButtonVariant = "contained" | "outlined" | "text";
 export interface ButtonProps extends React.ComponentPropsWithRef<"button"> {
     variant?: ButtonVariant;
     loading?: boolean;
-    startIcon?: React.ReactNode;
+    startIcon?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -26,6 +26,13 @@ export const Button: React.FC<ButtonProps> = ({
     );
     return (
         <button {...props} className={classes}>
+            {!!startIcon && (
+                <img
+                    src={startIcon}
+                    alt="googlebtns"
+                    className={styles.startIcon}
+                />
+            )}
             {!loading && children}
             {loading && "загрузка..."}
         </button>

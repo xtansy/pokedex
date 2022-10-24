@@ -1,5 +1,4 @@
 import { createContext, Dispatch, SetStateAction } from "react";
-import { User } from "firebase/auth";
 
 export type Store = {
     session: {

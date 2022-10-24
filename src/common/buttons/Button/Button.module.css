@@ -26,3 +26,7 @@
     @apply hover:text-neutral-400;
     @apply active:text-neutral-500;
 }
+
+.startIcon {
+    @apply w-7 mr-2;
+}

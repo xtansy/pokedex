@@ -10,7 +10,7 @@ import { useStore } from "../../utils/contexts";
 import { ROUTES } from "../../utils/constants";
 
 interface SignInProps {
-    email: User["email"];
+    email: string;
     password: string;
 }
 

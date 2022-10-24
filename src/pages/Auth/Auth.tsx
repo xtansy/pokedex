@@ -3,12 +3,15 @@ import { useState } from "react";
 import styles from "./Auth.module.css";
 import { SignInForm } from "./SignInForm";
 import { SignUpForm } from "./SignUpForm";
-import { Button } from "../../common";
+import { Button, GoogleButton } from "../../common";
+import { useLogInWithGoogleMutation } from "../../utils/firebase/hooks";
 
 export const Auth = () => {
     const [isSignUp, setIsSignUp] = useState<boolean>(false);
 
     const buttonText = isSignUp ? "already have account" : "create new account";
+
+    const { mutate } = useLogInWithGoogleMutation();
 
     return (
         <div className={styles.register}>
@@ -24,6 +27,9 @@ export const Auth = () => {
                     >
                         {buttonText}
                     </Button>
+                    <GoogleButton onClick={() => mutate({})}>
+                        Sign In with Google
+                    </GoogleButton>
                 </div>
             </div>
         </div>

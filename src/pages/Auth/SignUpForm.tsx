@@ -15,6 +15,7 @@ import { useStore } from "../../utils/contexts";
 import { ROUTES } from "../../utils/constants/";
 
 interface SignUpProps extends User {
+    email: string;
     password: string;
 }
 
@@ -60,8 +61,8 @@ export const SignUpForm = () => {
             <form onSubmit={onSubmit}>
                 <Input
                     disabled={isLoading}
-                    {...register("name", nameSchema)}
-                    error={errors.name?.message}
+                    {...register("displayName", nameSchema)}
+                    error={errors.displayName?.message?.toString()}
                     placeholder="Name"
                 />
 
