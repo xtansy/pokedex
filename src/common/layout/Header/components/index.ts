@@ -1,2 +1,2 @@
-export * from "./layout/Layout";
+export * from "./Burger/Burger";
 export * from "./BurgerMenu/BurgerMenu";

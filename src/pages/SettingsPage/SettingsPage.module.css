@@ -1,0 +1,18 @@
+.settingsPage {
+    @apply pl-20 pr-20 mt-10;
+}
+.settingsPage_imgWrapper {
+    @apply flex items-center justify-center;
+}
+.settingsPage_imgWrapper label {
+    display: block;
+    overflow: hidden;
+    width: 120px;
+    height: 120px;
+}
+.settingsPage_imgWrapper img {
+    @apply rounded-full object-cover w-full h-full;
+}
+.settingsPage_fileInput {
+    @apply hidden;
+}

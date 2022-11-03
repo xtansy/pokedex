@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 
 import styles from "./Auth.module.css";
 import { Button } from "../../common/buttons";
@@ -11,18 +10,8 @@ import {
     citySchema,
 } from "../../utils/constants";
 import { useRegisterWithEmailAndPasswordMutation } from "../../utils/firebase/hooks";
-import { useStore } from "../../utils/contexts";
-import { ROUTES } from "../../utils/constants/";
-
-interface SignUpProps extends User {
-    email: string;
-    password: string;
-}
 
 export const SignUpForm = () => {
-    const navigate = useNavigate();
-    const { changeSession } = useStore();
-
     const { register, handleSubmit, formState, setError } =
         useForm<SignUpProps>();
 
@@ -50,7 +39,9 @@ export const SignUpForm = () => {
             },
         });
 
-    const onSubmit = handleSubmit((user) => mutate(user));
+    const onSubmit = handleSubmit(({ password, ...user }) =>
+        mutate({ password, user })
+    );
 
     const isLoading =
         isSubmitting || registerWithEmailAndPasswordMutationLoading;

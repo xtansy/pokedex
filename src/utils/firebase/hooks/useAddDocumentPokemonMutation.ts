@@ -10,7 +10,7 @@ interface useAddDocumentPokemonMutationProps {
 
 type useAddDocumentMutationProps = useAddDocumentPokemonMutationProps;
 
-export const useAddDocumentMutation = (
+export const useAddDocumentPokemonMutation = (
     settings?: RequestMutationSettings<typeof addDocument>
 ) => {
     return useMutation(

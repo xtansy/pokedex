@@ -1,8 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
 import { registerWithEmailAndPassword } from "../requests";
 
-interface useRegisterWithEmailAndPasswordMutationProps extends User {
+interface useRegisterWithEmailAndPasswordMutationProps {
     password: string;
+    user: Omit<SignUpProps, "password">;
 }
 
 export const useRegisterWithEmailAndPasswordMutation = (
@@ -10,8 +11,8 @@ export const useRegisterWithEmailAndPasswordMutation = (
 ) => {
     return useMutation(
         ["signUp"],
-        (user: RequestParams<useRegisterWithEmailAndPasswordMutationProps>) =>
-            registerWithEmailAndPassword(user, user.password),
+        (params: RequestParams<useRegisterWithEmailAndPasswordMutationProps>) =>
+            registerWithEmailAndPassword(params.user, params.password),
         settings?.options
     );
 };

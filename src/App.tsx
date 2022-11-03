@@ -6,8 +6,9 @@ import {
     PokemonPage,
     Auth,
     ProfilePage,
+    SettingsPage,
 } from "./pages";
-import Layout from "./features/layout/Layout";
+import Layout from "./common/layout";
 import { ROUTES } from "./utils/constants";
 import { useStore } from "./utils/contexts";
 
@@ -41,6 +42,10 @@ const App = () => {
                             element={<PokemonPage />}
                         />
                         <Route path={ROUTES.USER} element={<ProfilePage />} />
+                        <Route
+                            path={ROUTES.SETTINGS}
+                            element={<SettingsPage />}
+                        />
                     </Route>
                 </Routes>
             )}

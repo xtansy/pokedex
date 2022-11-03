@@ -21,7 +21,6 @@ export const ProfilePage = () => {
     const { logoutClearStore } = useStore();
     const onClickLogout = () => {
         logout.mutate({});
-        navigate(ROUTES.AUTH);
         logoutClearStore();
     };
 

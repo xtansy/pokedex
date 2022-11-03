@@ -4,7 +4,7 @@ import { getPokemonId } from "../../utils/helpers";
 import { PokemonStats, PokemonTypes } from "../";
 import { Button } from "../buttons";
 import styles from "./PokemonInfo.module.css";
-import { useAddDocumentMutation } from "../../utils/firebase/hooks";
+import { useAddDocumentPokemonMutation } from "../../utils/firebase/hooks";
 import { useStore } from "../../utils/contexts";
 
 interface PokemonInfoProps {
@@ -19,7 +19,7 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ id, onClose }) => {
 
     const { data, isLoading } = useRequestPokemonQuery({ idOrName: id });
 
-    const { mutate } = useAddDocumentMutation();
+    const { mutate } = useAddDocumentPokemonMutation();
 
     if (isLoading || !data) return null;
 

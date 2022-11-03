@@ -1,17 +1,13 @@
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../utils/constants";
-import { BurgerMenu } from "../../BurgerMenu/BurgerMenu";
+import { BurgerMenu } from "../Header/components";
 
 export const Header = () => {
     return (
         <div className={styles.header_container}>
             <div className={styles.header__left}>
-                <img
-                    width={80}
-                    src="https://e7.pngegg.com/pngimages/1023/911/png-clipart-pokemon-logo-pokemon-logo.png"
-                    alt="logo"
-                />
+                <h1 className={styles.header__left_logo}>PokemonBase</h1>
             </div>
             <div className={styles.header__right}>
                 <ul className={styles.header__right_links}>
@@ -23,6 +19,9 @@ export const Header = () => {
                     </li>
                     <li>
                         <Link to={ROUTES.USER}>Profile</Link>
+                    </li>
+                    <li>
+                        <Link to={ROUTES.SETTINGS}>Settings</Link>
                     </li>
                 </ul>
                 <BurgerMenu />

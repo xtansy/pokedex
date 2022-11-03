@@ -11,8 +11,16 @@
 }
 
 .header__right_links {
-    @apply flex items-center;
+    @apply hidden;
 }
+.header__right_links {
+    @apply md:flex md:items-center;
+}
+.header__left_logo {
+    @apply relative z-10 text-xl;
+}
+
+
 .header__right_links li {
     @apply ml-5;
 }

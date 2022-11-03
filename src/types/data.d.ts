@@ -12,6 +12,13 @@ type User = {
     }[];
 };
 
+interface SignUpProps {
+    password: string;
+    city: string;
+    displayName: string;
+    email: string;
+}
+
 interface PokemonDocument {
     uid: User["uid"];
     pokemonId: Pokemon["id"];
