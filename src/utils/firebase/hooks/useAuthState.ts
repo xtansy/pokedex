@@ -50,19 +50,7 @@ export const useAuthState = () => {
         };
     }, [auth]);
 
-    console.log({
-        isAuth: !!data,
-        user: data,
-        setData,
-        setError,
-        isError,
-        isLoading,
-        errorMessage,
-        setLoading,
-    });
-
     return {
-        isAuth: !!data,
         user: data,
         setData,
         setError,

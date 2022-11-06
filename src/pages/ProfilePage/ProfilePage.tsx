@@ -1,24 +1,20 @@
-import { useNavigate } from "react-router-dom";
+import styles from "./ProfilePage.module.css";
 
 import { Button } from "../../common";
-import styles from "./ProfilePage.module.css";
 import {
     useLogoutMutation,
     useUserPokemonsCollection,
 } from "../../utils/firebase/hooks";
-import { ROUTES } from "../../utils/constants";
 import { useStore } from "../../utils/contexts";
 import { ProfileCard } from "../../common";
 import { PokemonShortCard } from "../../common";
 
 export const ProfilePage = () => {
-    const { user } = useStore();
-    const navigate = useNavigate();
+    const { user, logoutClearStore } = useStore();
     const logout = useLogoutMutation();
 
     const { data } = useUserPokemonsCollection({ uid: user.uid });
 
-    const { logoutClearStore } = useStore();
     const onClickLogout = () => {
         logout.mutate({});
         logoutClearStore();

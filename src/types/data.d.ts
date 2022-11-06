@@ -1,3 +1,8 @@
+interface SettingsParamsProps {
+    type: keyof Pick<User, "displayName" | "city">;
+    value: string;
+}
+
 type User = {
     city?: string;
     displayName: Include<import("firebase/auth").User["displayName"], string>;

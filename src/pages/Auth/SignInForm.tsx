@@ -1,13 +1,10 @@
 import { useForm } from "react-hook-form";
 import styles from "./Auth.module.css";
-import { useNavigate } from "react-router-dom";
 
 import { Button } from "../../common/buttons";
 import { Input } from "../../common/fields";
 import { emailSchema, passwordSchema } from "../../utils/constants";
 import { useLogInWithEmailAndPasswordMutation } from "../../utils/firebase/hooks";
-import { useStore } from "../../utils/contexts";
-import { ROUTES } from "../../utils/constants";
 
 interface SignInProps {
     email: string;
@@ -15,7 +12,6 @@ interface SignInProps {
 }
 
 export const SignInForm = () => {
-    const navigate = useNavigate();
     const { register, handleSubmit, formState, setError } =
         useForm<SignInProps>();
     const { isSubmitting, errors } = formState;

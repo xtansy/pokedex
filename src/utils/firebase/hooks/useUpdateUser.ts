@@ -3,7 +3,7 @@ import { updateDocument } from "../requests";
 
 interface useUpdateUserProps {
     collection: "users";
-    id: string;
+    id: User["uid"];
     data: Partial<User>;
 }
 

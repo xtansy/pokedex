@@ -1,10 +1,11 @@
+import styles from "./SettingsPage.module.css";
 import { useState } from "react";
 
 import { useStore } from "../../utils/contexts";
 import { useUploadImage } from "../../utils/firebase/hooks";
-import styles from "./SettingsPage.module.css";
 import { useUpdateUser } from "../../utils/firebase/hooks";
 import { Setting } from "./Setting/Setting";
+import { SettingsModal } from "../../common/modal";
 
 export const SettingsPage = () => {
     const [fileObj, setFile] = useState<
@@ -34,6 +35,13 @@ export const SettingsPage = () => {
         });
     };
 
+    const [settingsParams, setSettingsParams] =
+        useState<SettingsParamsProps | null>(null);
+
+    const onClose = () => {
+        setSettingsParams(null);
+    };
+
     return (
         <div className={styles.settingsPage}>
             <div className={styles.settingsPage_imgWrapper}>
@@ -60,9 +68,28 @@ export const SettingsPage = () => {
             <div className={styles.settingsPage_inlineWrapper}>
                 <Setting label={"User id"} value={user.uid} />
                 <Setting label={"Email"} value={user.email} />
-                <Setting label={"Your name"} value={user.displayName} />
-                <Setting label={"City"} value={user.city} />
+                <Setting
+                    label={"Your name"}
+                    value={user.displayName}
+                    onClick={() => {
+                        setSettingsParams({
+                            type: "displayName",
+                            value: user.displayName,
+                        });
+                    }}
+                />
+                <Setting
+                    label={"City"}
+                    value={user.city}
+                    onClick={() => {
+                        setSettingsParams({
+                            type: "city",
+                            value: user.city ?? "",
+                        });
+                    }}
+                />
             </div>
+            <SettingsModal settingsParams={settingsParams} onClose={onClose} />
         </div>
     );
 };

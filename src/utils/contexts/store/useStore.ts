@@ -1,16 +1,11 @@
 import { useContext } from "react";
 
-import { StoreContext, Store, INITIAL_STORE } from "./StoreContext";
+import { StoreContext, INITIAL_STORE } from "./StoreContext";
 
 export const useStore = () => {
     const { store, setStore } = useContext(StoreContext);
 
-    const changeSession = (newSession: Partial<Store["session"]>) => {
-        setStore({
-            ...store,
-            session: { ...store.session, ...newSession },
-        });
-    };
+    console.log(store.user);
 
     const logoutClearStore = () => {
         setStore(INITIAL_STORE);
@@ -18,7 +13,6 @@ export const useStore = () => {
 
     return {
         ...store,
-        changeSession,
         logoutClearStore,
     };
 };
