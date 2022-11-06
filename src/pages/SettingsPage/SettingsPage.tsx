@@ -4,6 +4,7 @@ import { useStore } from "../../utils/contexts";
 import { useUploadImage } from "../../utils/firebase/hooks";
 import styles from "./SettingsPage.module.css";
 import { useUpdateUser } from "../../utils/firebase/hooks";
+import { Setting } from "./Setting/Setting";
 
 export const SettingsPage = () => {
     const [fileObj, setFile] = useState<
@@ -56,7 +57,12 @@ export const SettingsPage = () => {
                     />
                 </label>
             </div>
-            <h1>{user.displayName}</h1>
+            <div className={styles.settingsPage_inlineWrapper}>
+                <Setting label={"User id"} value={user.uid} />
+                <Setting label={"Email"} value={user.email} />
+                <Setting label={"Your name"} value={user.displayName} />
+                <Setting label={"City"} value={user.city} />
+            </div>
         </div>
     );
 };

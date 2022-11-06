@@ -1,0 +1,6 @@
+.setting_label {
+    @apply text-slate-400;
+}
+.setting_value {
+    @apply font-bold;
+}

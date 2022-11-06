@@ -7,7 +7,7 @@ import { auth } from "../instance";
 import { usePromise } from "../../hooks";
 import { database } from "../instance";
 
-// hook for heck auth
+// core hook for check auth, check user firestore
 export const useAuthState = () => {
     const {
         data,
@@ -23,10 +23,24 @@ export const useAuthState = () => {
         const listener = onAuthStateChanged(
             auth,
             async (user) => {
-                if (!user) return setLoading(false);
-                setData(user);
+                if (!user) return setData(null);
+                const unsub = onSnapshot(
+                    doc(database, "users", user.uid),
+                    (doc) => {
+                        const userData = doc.data() as User;
+                        setData(userData);
+                    },
+                    (err) => {
+                        setError(err.message);
+                        setLoading(false);
+                    },
+                    () => {
+                        unsub();
+                    }
+                );
             },
             (error) => {
+                setLoading(false);
                 setError(error.message);
             }
         );
@@ -36,21 +50,19 @@ export const useAuthState = () => {
         };
     }, [auth]);
 
-    useEffect(() => {
-        if (data) {
-            const unsub = onSnapshot(
-                doc(database, "users", data.uid),
-                (doc) => {
-                    console.log("Current data: ", doc.data());
-                }
-            );
-            return () => {
-                unsub();
-            };
-        }
-    }, [data]);
+    console.log({
+        isAuth: !!data,
+        user: data,
+        setData,
+        setError,
+        isError,
+        isLoading,
+        errorMessage,
+        setLoading,
+    });
 
     return {
+        isAuth: !!data,
         user: data,
         setData,
         setError,

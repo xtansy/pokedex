@@ -12,8 +12,9 @@ export const usePromise = <T>() => {
         data,
         isLoading,
         setLoading,
-        setData: (data: T) => {
+        setData: (data: T | null) => {
             setLoading(false);
+            setError(null);
             setData(data);
         },
     };

@@ -1,5 +1,5 @@
 .settingsPage {
-    @apply pl-20 pr-20 mt-10;
+    @apply flex flex-col items-center pl-20 pr-20 mt-10;
 }
 .settingsPage_imgWrapper {
     @apply flex items-center justify-center;
@@ -15,4 +15,10 @@
 }
 .settingsPage_fileInput {
     @apply hidden;
+}
+.settingsPage_inlineWrapper {
+    @apply w-full bg-white shadow-cyan-500/50 rounded-lg p-4 mt-7;
+}
+.settingsPage_inlineWrapper >*:not(:last-child) {
+    @apply mb-4;
 }
