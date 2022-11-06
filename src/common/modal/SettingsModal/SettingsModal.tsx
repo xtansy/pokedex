@@ -1,11 +1,10 @@
 import styles from "./SettingsModal.module.css";
 
-import { Modal } from "../Modal/Modal";
+import { Modal, ModalProps } from "../Modal/Modal";
 import { SettingsModalContent } from "./SettingsModalContent/SettingsModalContent";
 
-interface SettingsModalProps {
+interface SettingsModalProps extends Pick<ModalProps, "onClose"> {
     settingsParams: SettingsParamsProps | null;
-    onClose: () => void;
 }
 
 export const SettingsModal: React.FC<SettingsModalProps> = ({

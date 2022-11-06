@@ -1,0 +1,6 @@
+.settingsContent_title {
+    @apply mb-4;
+}
+.settingsContent_form > *:not(:last-child) {
+    @apply mb-5;
+}

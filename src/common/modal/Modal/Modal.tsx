@@ -1,7 +1,7 @@
 import styles from "./Modal.module.css";
 import classnames from "classnames";
 
-interface ModalProps {
+export interface ModalProps {
     children: React.ReactNode;
     onClose: () => void;
     visible: boolean;
