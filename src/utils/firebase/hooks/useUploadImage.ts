@@ -14,6 +14,7 @@ export const useUploadImage = (imgName: string) => {
     const [error, setError] = useState<StorageError>();
     const [snapshot, setSnapshot] = useState<UploadTaskSnapshot>();
     const [progresspercent, setProgresspercent] = useState(0);
+    const [loading, setLoading] = useState<boolean>(false);
     const storageRef = ref(storage, imgName);
 
     const uploadFile = async (
@@ -26,6 +27,7 @@ export const useUploadImage = (imgName: string) => {
             uploadTask.on(
                 "state_changed",
                 (snapshot) => {
+                    setLoading(true);
                     setSnapshot(snapshot);
                     const progress = Math.round(
                         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
@@ -37,6 +39,7 @@ export const useUploadImage = (imgName: string) => {
                     reject(error);
                 },
                 async () => {
+                    setLoading(false);
                     setSnapshot(undefined);
                     const url = await getDownloadURL(storageRef);
                     resolve({
@@ -49,5 +52,5 @@ export const useUploadImage = (imgName: string) => {
         });
     };
 
-    return { uploadFile, error, snapshot, progresspercent };
+    return { uploadFile, error, snapshot, progresspercent, loading };
 };

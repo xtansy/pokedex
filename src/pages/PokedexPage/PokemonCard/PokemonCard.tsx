@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./PokemonCard.module.css";
-import { getPokemonId } from "../../utils/helpers";
+import { getPokemonId } from "../../../utils/helpers";
 
 interface PokemonCardProps {
     selectedPokemon: Pokemon | undefined;

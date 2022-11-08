@@ -8,7 +8,7 @@ import {
     ProfilePage,
     SettingsPage,
 } from "./pages";
-import Layout from "./common/layout";
+import { Layout } from "./common";
 import { ROUTES } from "./utils/constants";
 import { useStore } from "./utils/contexts";
 

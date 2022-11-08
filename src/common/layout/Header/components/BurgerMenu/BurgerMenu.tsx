@@ -7,6 +7,7 @@ import { useStore } from "../../../../../utils/contexts";
 import { useLogoutMutation } from "../../../../../utils/firebase/hooks";
 import { Button } from "../../../../";
 import { Burger } from "../Burger/Burger";
+import { Typography } from "../../../../../common/";
 
 import styles from "./BurgerMenu.module.css";
 
@@ -54,6 +55,24 @@ export const BurgerMenu = () => {
                                     <Link to={ROUTES.SETTINGS}>Settings</Link>
                                 </li>
                             </ul>
+                            <Typography variant="title" Tagname={"h1"}>
+                                Текст title
+                            </Typography>
+                            <Typography variant="sub-title" Tagname={"h1"}>
+                                Текст sub-title
+                            </Typography>
+                            <Typography variant="title-regular" Tagname={"h1"}>
+                                Текст title-regular
+                            </Typography>
+                            <Typography variant="body" Tagname={"h1"}>
+                                Текст body
+                            </Typography>
+                            <Typography variant="sub-body" Tagname={"h1"}>
+                                Текст sub-body
+                            </Typography>
+                            <Typography variant="title-body" Tagname={"h1"}>
+                                Текст title-body
+                            </Typography>
                         </div>
                         <Button onClick={onClickLogout}>LOGOUT</Button>
                     </div>

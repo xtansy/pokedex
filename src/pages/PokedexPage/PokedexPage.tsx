@@ -6,7 +6,7 @@ import {
     useRequestPokemonQueries,
 } from "../../utils/api/";
 import styles from "./PokedexPage.module.css";
-import { PokemonCard } from "../../common";
+import { PokemonCard } from "./PokemonCard/PokemonCard";
 
 export const PokedexPage = () => {
     const [offset, setOffset] = useState(6);

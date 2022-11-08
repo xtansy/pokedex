@@ -1,20 +1,27 @@
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import Pokemon from "./Pokemon/Pokemon";
+
 import { useRequestPokemonInfiniteQuery } from "../../utils/api/hooks/pokemon";
 import { getPokemonId } from "../../utils/helpers";
+import { PokemonInfo, PokemonModal } from "../../common";
+
 import styles from "./PokemonsPage.module.css";
-import { PokemonInfo } from "../../common";
 
 export const PokemonsPage = () => {
     const [pokemonId, setPokemonId] = useState<Pokemon["id"] | null>(null);
 
     const { isLoading, data, fetchNextPage } = useRequestPokemonInfiniteQuery();
+
     const { ref, inView } = useInView();
+
     const pokemons = data?.pages.reduce(
         (result: NamedAPIResource[], { data }) => [...result, ...data.results],
         []
     );
+
+    const onClosePokemonModal = () => {
+        setPokemonId(null);
+    };
 
     useEffect(() => {
         if (inView) {
@@ -40,15 +47,20 @@ export const PokemonsPage = () => {
                                     <h2>{item.name}</h2>
                                 </div>
                             </div>
-                            {pokemonId === id && (
+                            {/* {pokemonId === id && (
                                 <PokemonInfo
                                     onClose={() => setPokemonId(null)}
                                     id={id}
                                 />
-                            )}
+                            )} */}
                         </div>
                     );
                 })}
+                <PokemonModal
+                    onClose={onClosePokemonModal}
+                    visible={!!pokemonId}
+                    id={pokemonId}
+                />
                 <div ref={ref} />
             </div>
         </div>

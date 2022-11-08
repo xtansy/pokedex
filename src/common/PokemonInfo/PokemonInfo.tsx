@@ -1,16 +1,19 @@
-import { useRequestPokemonQuery } from "../../utils/api";
 import { useNavigate } from "react-router-dom";
+
+import { useRequestPokemonQuery } from "../../utils/api";
 import { getPokemonId } from "../../utils/helpers";
 import { PokemonStats, PokemonTypes } from "../";
 import { Button } from "../buttons";
-import styles from "./PokemonInfo.module.css";
-import { useAddDocumentPokemonMutation } from "../../utils/firebase/hooks";
+import { useUpdateUser } from "../../utils/firebase/hooks";
 import { useStore } from "../../utils/contexts";
 
+import styles from "./PokemonInfo.module.css";
 interface PokemonInfoProps {
     id: number;
     onClose: () => void;
 }
+
+const MAX_POKEMON_TEAM_COUNT = 6;
 
 export const PokemonInfo: React.FC<PokemonInfoProps> = ({ id, onClose }) => {
     const { session, user } = useStore();
@@ -19,12 +22,37 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ id, onClose }) => {
 
     const { data, isLoading } = useRequestPokemonQuery({ idOrName: id });
 
-    const { mutate } = useAddDocumentPokemonMutation();
+    const { mutate, isLoading: addPokemonLoading } = useUpdateUser({
+        options: {
+            onSuccess: () => onClose(),
+        },
+    });
 
     if (isLoading || !data) return null;
 
     const pokemon = data.data;
 
+    const isShowAddPokemonButton =
+        session.isAuth &&
+        user.pokemons.length < MAX_POKEMON_TEAM_COUNT &&
+        !user.pokemons.some((item) => item.id === pokemon.id);
+
+    const onClickAddToTeam = () => {
+        mutate({
+            collection: "users",
+            id: user.uid,
+            data: {
+                pokemons: [
+                    ...user.pokemons,
+                    {
+                        name: pokemon.name,
+                        id: pokemon.id,
+                        image: pokemon.sprites.front_default,
+                    },
+                ],
+            },
+        });
+    };
     return (
         <div className={styles.pokemon_info}>
             <div className={styles.pokemon_info_header}>
@@ -66,14 +94,11 @@ export const PokemonInfo: React.FC<PokemonInfoProps> = ({ id, onClose }) => {
                 >
                     OPEN
                 </Button>
-                {session.isAuth && user && (
+                {isShowAddPokemonButton && (
                     <Button
-                        onClick={() => {
-                            mutate({
-                                collection: "pokemons",
-                                data: { pokemonId: pokemon.id, uid: user.uid },
-                            });
-                        }}
+                        disabled={addPokemonLoading}
+                        loading={addPokemonLoading}
+                        onClick={onClickAddToTeam}
                     >
                         ADD TO TEAM
                     </Button>

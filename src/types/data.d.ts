@@ -10,7 +10,7 @@ type User = {
     phoneNumber: import("firebase/auth").User["phoneNumber"];
     photoURL: import("firebase/auth").User["photoURL"];
     uid: import("firebase/auth").User["uid"];
-    pokemons?: {
+    pokemons: {
         name: Pokemon["name"];
         id: Pokemon["id"];
         image: Pokemon["sprites"]["front_default"];

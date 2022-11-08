@@ -4,13 +4,13 @@
 .settingsPage_imgWrapper {
     @apply flex items-center justify-center;
 }
-.settingsPage_imgWrapper label {
+.settingsPage_imgWrapper_img {
     display: block;
     overflow: hidden;
     width: 120px;
     height: 120px;
 }
-.settingsPage_imgWrapper img {
+.settingsPage_imgWrapper_img img {
     @apply rounded-full object-cover w-full h-full;
 }
 .settingsPage_fileInput {

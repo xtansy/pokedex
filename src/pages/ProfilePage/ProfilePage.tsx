@@ -1,19 +1,15 @@
 import styles from "./ProfilePage.module.css";
 
-import { Button } from "../../common";
-import {
-    useLogoutMutation,
-    useUserPokemonsCollection,
-} from "../../utils/firebase/hooks";
+import { useLogoutMutation } from "../../utils/firebase/hooks";
 import { useStore } from "../../utils/contexts";
-import { ProfileCard } from "../../common";
-import { PokemonShortCard } from "../../common";
+import { PokemonShortCard, ProfileCard, Button } from "../../common";
 
 export const ProfilePage = () => {
     const { user, logoutClearStore } = useStore();
-    const logout = useLogoutMutation();
 
-    const { data } = useUserPokemonsCollection({ uid: user.uid });
+    const pokemons = user.pokemons;
+
+    const logout = useLogoutMutation();
 
     const onClickLogout = () => {
         logout.mutate({});
@@ -29,21 +25,16 @@ export const ProfilePage = () => {
             <div className={styles.profile__content}>
                 <h2>Team</h2>
                 <div className={styles.profile__content_items}>
-                    {data &&
-                        data.map((pokemon, i) => {
-                            return (
-                                <div
-                                    key={i}
-                                    className={
-                                        styles.profile__content_items_item
-                                    }
-                                >
-                                    <PokemonShortCard
-                                        idOrName={pokemon.pokemonId}
-                                    />
-                                </div>
-                            );
-                        })}
+                    {pokemons.map((pokemon, i) => {
+                        return (
+                            <div
+                                key={i}
+                                className={styles.profile__content_items_item}
+                            >
+                                <PokemonShortCard idOrName={pokemon.id} />
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>
