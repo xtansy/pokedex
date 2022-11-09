@@ -37,22 +37,42 @@ export const BurgerMenu = () => {
                 <div className={styles.burgerMenu}>
                     <div className={styles.burgerMenu_block}>
                         <div className={styles.burgerMenu_block_profile}>
-                            <ProfileCard user={user} />
+                            <ProfileCard
+                                user={user}
+                                onCloseBurgerMenu={onClose}
+                            />
                         </div>
                         <div className={styles.burgerMenu_block_nav}>
                             <h2 className="title">Navigation</h2>
                             <ul>
                                 <li onClick={onClose}>
-                                    <Link to={ROUTES.POKEMONS}>Pokemons</Link>
+                                    <Typography variant="title-regular">
+                                        <Link to={ROUTES.POKEMONS}>
+                                            Pokemons
+                                        </Link>
+                                    </Typography>
                                 </li>
                                 <li onClick={onClose}>
-                                    <Link to={ROUTES.POKEDEX}>Pokedex</Link>
+                                    <Typography variant="title-regular">
+                                        <Link to={ROUTES.POKEDEX}>Pokedex</Link>
+                                    </Typography>
                                 </li>
                                 <li onClick={onClose}>
-                                    <Link to={ROUTES.USER}>Profile</Link>
+                                    <Typography variant="title-regular">
+                                        <Link to={ROUTES.USER}>Profile</Link>
+                                    </Typography>
                                 </li>
                                 <li onClick={onClose}>
-                                    <Link to={ROUTES.SETTINGS}>Settings</Link>
+                                    <Typography variant="title-regular">
+                                        <Link to={ROUTES.SETTINGS}>
+                                            Settings
+                                        </Link>
+                                    </Typography>
+                                </li>
+                                <li onClick={onClose}>
+                                    <Typography variant="title-regular">
+                                        <Link to={ROUTES.USERS}>Users</Link>
+                                    </Typography>
                                 </li>
                             </ul>
                             <Typography variant="title" Tagname={"h1"}>

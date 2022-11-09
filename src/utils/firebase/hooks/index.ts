@@ -5,6 +5,6 @@ export * from "./useAuthState";
 export * from "./useAddDocumentPokemonMutation";
 export * from "./useCollection";
 export * from "./useLogoutMutation";
-export * from "./useUserPokemonsCollection";
+export * from "./useUsersCollection";
 export * from "./useUploadImage";
 export * from "./useUpdateUser";

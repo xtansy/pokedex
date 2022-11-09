@@ -1,0 +1,7 @@
+.users {
+    margin: 0 auto;
+    @apply border shadow-lg p-7 mt-7 mx-20;
+}
+.users_block {
+    @apply mb-7;
+}

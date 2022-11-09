@@ -5,4 +5,5 @@ export const ROUTES = {
     AUTH: "/auth",
     USER: "/user",
     SETTINGS: "/settings",
+    USERS: "/users",
 };

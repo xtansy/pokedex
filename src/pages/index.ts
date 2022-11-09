@@ -4,3 +4,4 @@ export * from "./PokemonPage/PokemonPage";
 export * from "./Auth/Auth";
 export * from "./ProfilePage/ProfilePage";
 export * from "./SettingsPage/SettingsPage";
+export * from "./UsersPage/UsersPage";

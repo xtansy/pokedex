@@ -7,6 +7,7 @@ import {
     Auth,
     ProfilePage,
     SettingsPage,
+    UsersPage,
 } from "./pages";
 import { Layout } from "./common";
 import { ROUTES } from "./utils/constants";
@@ -46,6 +47,7 @@ const App = () => {
                             path={ROUTES.SETTINGS}
                             element={<SettingsPage />}
                         />
+                        <Route path={ROUTES.USERS} element={<UsersPage />} />
                     </Route>
                 </Routes>
             )}

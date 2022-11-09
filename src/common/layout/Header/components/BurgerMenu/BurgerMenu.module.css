@@ -6,7 +6,8 @@
     @apply md:hidden;
 }
 .burgerMenu {
-    @apply absolute min-h-full min-w-full right-0 overflow-hidden bg-white top-0;
+    /* @apply absolute min-h-full min-w-full right-0 overflow-hidden bg-white top-0; */
+    @apply fixed h-screen w-screen  right-0 overflow-hidden bg-white top-0;
 }
 .burgerMenu_block {
     @apply mt-20 flex flex-col items-center p-4;
@@ -26,7 +27,7 @@
     @apply absolute right-5 top-5 p-4 space-y-2 rounded shadow w-min bg-sky-400;
 }
 
-.burgerMenu_block_nav  {
+.burgerMenu_block_nav {
     @apply self-start mt-7;
 }
 .burgerMenu_block_nav ul {

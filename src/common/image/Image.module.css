@@ -1,0 +1,20 @@
+.pokemon {
+    @apply w-full;
+}
+.pokemon img {
+    @apply w-[300px];
+}
+
+.small-pokemon img {
+    @apply w-full;
+}
+
+.avatar img {
+    @apply rounded-lg w-[70px] h-[70px]  object-cover;
+}
+.small-round-avatar {
+    @apply w-[120px] h-[120px];
+}
+.small-round-avatar img {
+    @apply w-full h-full object-cover rounded-full;
+}

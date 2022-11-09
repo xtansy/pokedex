@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { useStore } from "../../utils/contexts";
 import { Setting } from "./Setting/Setting";
-import { SettingsModal, ImgLoadModal } from "../../common";
+import { SettingsModal, ImgLoadModal, Image } from "../../common";
 
 export const SettingsPage = () => {
     const { user } = useStore();
@@ -20,21 +20,11 @@ export const SettingsPage = () => {
 
     return (
         <div className={styles.settingsPage}>
-            <div className={styles.settingsPage_imgWrapper}>
-                <div
-                    onClick={() => setImgModalVisible(true)}
-                    className={styles.settingsPage_imgWrapper_img}
-                >
-                    {user.photoURL ? (
-                        <img src={user.photoURL} alt="photoUser" />
-                    ) : (
-                        <img
-                            src="http://dummyimage.com/120"
-                            alt="safeUserPhoto"
-                        />
-                    )}
-                </div>
-            </div>
+            <Image
+                variant="small-round-avatar"
+                src={user.photoURL}
+                alt="userPhoto"
+            />
             <div className={styles.settingsPage_inlineWrapper}>
                 <Setting label={"User id"} value={user.uid} />
                 <Setting label={"Email"} value={user.email} />

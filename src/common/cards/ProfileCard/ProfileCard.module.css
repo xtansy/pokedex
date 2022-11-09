@@ -1,10 +1,17 @@
-
 .profile_img {
     @apply w-full rounded-lg;
 }
 .profile_info {
-    @apply flex w-full justify-center;
+    @apply flex w-full;
 }
 .profile_info_user {
     @apply ml-5;
+}
+.user_pokemons {
+    @apply flex mt-4 gap-2 flex-wrap justify-center;
+}
+.user_pokemons_item {
+    @apply border-2 border-blue-400 rounded-full;
+    @apply w-[65px];
+    @apply mb-7;
 }
