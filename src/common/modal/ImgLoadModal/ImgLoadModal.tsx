@@ -4,6 +4,7 @@ import { Button } from "../../buttons";
 import { Modal, ModalProps } from "../Modal/Modal";
 import { useUpdateUser, useUploadImage } from "../../../utils/firebase/hooks";
 import { useStore } from "../../../utils/contexts";
+import { Typography } from "../../";
 
 type ImgLoadModalProps = Omit<ModalProps, "children">;
 
@@ -36,9 +37,13 @@ export const ImgLoadModal: React.FC<ImgLoadModalProps> = ({
             <div className={styles.imgModalContent}>
                 <label>
                     {!loading ? (
-                        <h2>Upload Your photo</h2>
+                        <Typography Tagname="h2" variant="sub-title">
+                            Upload Your photo
+                        </Typography>
                     ) : (
-                        <h2>{progresspercent}%</h2>
+                        <Typography Tagname="h2" variant="sub-title">
+                            {progresspercent}%
+                        </Typography>
                     )}
                     <input
                         className={styles.imgModalContent_input}

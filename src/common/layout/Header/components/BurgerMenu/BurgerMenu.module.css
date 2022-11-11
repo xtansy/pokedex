@@ -3,10 +3,10 @@
 }
 
 .burger_wrapper {
-    @apply md:hidden;
+    @apply lg:hidden;
 }
+
 .burgerMenu {
-    /* @apply absolute min-h-full min-w-full right-0 overflow-hidden bg-white top-0; */
     @apply fixed h-screen w-screen  right-0 overflow-hidden bg-white top-0;
 }
 .burgerMenu_block {
@@ -17,16 +17,6 @@
     @apply shadow-2xl rounded-lg    p-10;
 }
 
-.burger_lines {
-    @apply md:hidden;
-}
-.burger_lines {
-    @apply absolute md:right-5 top-5 p-4 space-y-2 bg-gray-600 rounded shadow w-min;
-}
-.burger_lines_active {
-    @apply absolute right-5 top-5 p-4 space-y-2 rounded shadow w-min bg-sky-400;
-}
-
 .burgerMenu_block_nav {
     @apply self-start mt-7;
 }
@@ -35,4 +25,9 @@
 }
 .burgerMenu_block_nav ul li {
     @apply mb-2;
+}
+
+:global(.dark) .burgerMenu {
+    @apply bg-slate-800;
+    @apply text-slate-300;
 }

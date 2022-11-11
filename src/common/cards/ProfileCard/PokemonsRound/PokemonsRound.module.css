@@ -1,0 +1,11 @@
+.user_pokemons {
+    @apply flex mt-4 gap-5 flex-wrap justify-center p-2 rounded-lg;
+}
+
+.user_pokemons_item {
+    @apply border-2 border-blue-400 rounded-full cursor-pointer;
+    @apply w-[65px];
+}
+:global(.dark) .user_pokemons {
+    @apply bg-slate-500;
+}

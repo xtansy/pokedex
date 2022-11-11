@@ -4,3 +4,6 @@
 .imgModalContent {
     @apply flex flex-col items-center justify-center;
 }
+.imgModalContent h2 {
+    @apply cursor-pointer mb-5;
+}

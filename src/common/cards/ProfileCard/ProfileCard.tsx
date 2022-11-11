@@ -3,6 +3,8 @@ import styles from "./ProfileCard.module.css";
 import { useNavigate } from "react-router-dom";
 
 import { Image, Typography } from "../../";
+import { PokemonsRound } from "./PokemonsRound/PokemonsRound";
+
 interface ProfileCardProps {
     user: User;
     onCloseBurgerMenu?: () => void;
@@ -20,7 +22,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
     };
 
     return (
-        <div>
+        <div className={styles.profile}>
             <div className={styles.profile_info}>
                 <Image src={user.photoURL} />
                 <div className={styles.profile_info_user}>
@@ -32,22 +34,28 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
                     </Typography>
                 </div>
             </div>
-            <div className={styles.user_pokemons}>
-                {user.pokemons.map((pokemon, i) => {
-                    return (
-                        <div
-                            onClick={() => onClickPokemon(pokemon.id)}
-                            key={i}
-                            className={styles.user_pokemons_item}
-                        >
-                            <Image
-                                src={pokemon.image}
-                                variant="small-pokemon"
-                            />
-                        </div>
-                    );
-                })}
-            </div>
+            <PokemonsRound
+                pokemons={user.pokemons}
+                onClickPokemon={onClickPokemon}
+            />
+            {/* {user.pokemons.length && (
+                <div className={styles.user_pokemons}>
+                    {user.pokemons.map((pokemon, i) => {
+                        return (
+                            <div
+                                onClick={() => onClickPokemon(pokemon.id)}
+                                key={i}
+                                className={styles.user_pokemons_item}
+                            >
+                                <Image
+                                    src={pokemon.image}
+                                    variant="small-pokemon"
+                                />
+                            </div>
+                        );
+                    })}
+                </div>
+            )} */}
         </div>
     );
 };

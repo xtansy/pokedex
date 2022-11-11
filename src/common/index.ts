@@ -7,3 +7,4 @@ export * from "./modal";
 export * from "./layout";
 export * from "./Typography/Typography";
 export * from "./image/Image";
+export * from "./themeSwitcher/ThemeSwitcher";

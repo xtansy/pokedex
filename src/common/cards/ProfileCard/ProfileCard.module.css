@@ -7,11 +7,12 @@
 .profile_info_user {
     @apply ml-5;
 }
-.user_pokemons {
-    @apply flex mt-4 gap-2 flex-wrap justify-center;
+
+.profile {
+    @apply p-4 rounded-lg;
 }
-.user_pokemons_item {
-    @apply border-2 border-blue-400 rounded-full;
-    @apply w-[65px];
-    @apply mb-7;
+
+:global(.dark) .profile {
+    @apply bg-slate-800;
+    @apply text-slate-300;
 }

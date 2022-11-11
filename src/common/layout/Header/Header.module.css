@@ -1,3 +1,9 @@
-.header_container {
-    @apply sticky w-full px-20 py-[30px] flex items-center justify-between border-b-4 bg-white top-0;
+.header {
+    @apply sticky py-[30px] flex items-center justify-between border-b-4 bg-white top-0;
+}
+
+:global(.dark) .header {
+    @apply bg-slate-800;
+    @apply text-slate-300;
+    @apply border-slate-300;
 }

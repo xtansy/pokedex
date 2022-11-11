@@ -1,7 +1,22 @@
 .users {
     margin: 0 auto;
-    @apply border shadow-lg p-7 mt-7 mx-20;
+    @apply w-full;
 }
+
 .users_block {
-    @apply mb-7;
+    @apply mb-10;
+}
+
+.wrapper {
+    @apply h-screen pt-10;
+}
+
+:global(.dark) .wrapper {
+    @apply bg-slate-900;
+    @apply text-slate-300;
+}
+@screen md {
+    .users {
+        @apply w-fit;
+    }
 }

@@ -1,5 +1,5 @@
 .page {
-    @apply p-6;
+    @apply w-full py-7;
 }
 .page_header {
     @apply flex items-center;
@@ -17,5 +17,17 @@
 .page_img img {
     @apply h-[300px] my-0 mx-auto;
 }
-.page_buttons {
+.page_pokemon {
+    margin: 0 auto;
+    @apply w-full;
+}
+:global(.dark) .page {
+    @apply bg-slate-800;
+    @apply text-slate-300;
+}
+
+@screen md {
+    .page_pokemon {
+        @apply w-fit;
+    }
 }

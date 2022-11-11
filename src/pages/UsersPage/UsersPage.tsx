@@ -11,14 +11,18 @@ export const UsersPage = () => {
     if (loading) return null;
 
     return (
-        <div className={styles.users}>
-            {data.map((user, i) => {
-                return (
-                    <div key={i} className={styles.users_block}>
-                        <ProfileCard key={i} user={user} />
-                    </div>
-                );
-            })}
+        <div className={styles.wrapper}>
+            <div className="container">
+                <div className={styles.users}>
+                    {data.map((user, i) => {
+                        return (
+                            <div key={i} className={styles.users_block}>
+                                <ProfileCard key={i} user={user} />
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
         </div>
     );
 };

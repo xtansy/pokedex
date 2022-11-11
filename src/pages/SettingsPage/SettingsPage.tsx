@@ -20,37 +20,45 @@ export const SettingsPage = () => {
 
     return (
         <div className={styles.settingsPage}>
-            <Image
-                variant="small-round-avatar"
-                src={user.photoURL}
-                alt="userPhoto"
-            />
-            <div className={styles.settingsPage_inlineWrapper}>
-                <Setting label={"User id"} value={user.uid} />
-                <Setting label={"Email"} value={user.email} />
-                <Setting
-                    label={"Your name"}
-                    value={user.displayName}
-                    onClick={() => {
-                        setSettingsParams({
-                            type: "displayName",
-                            value: user.displayName,
-                        });
-                    }}
-                />
-                <Setting
-                    label={"City"}
-                    value={user.city}
-                    onClick={() => {
-                        setSettingsParams({
-                            type: "city",
-                            value: user.city ?? "",
-                        });
-                    }}
-                />
+            <div className="container">
+                <div className={styles.settingsPage_content}>
+                    <Image
+                        onClick={() => setImgModalVisible(true)}
+                        variant="small-round-avatar"
+                        src={user.photoURL}
+                        alt="userPhoto"
+                    />
+                    <div className={styles.settingsPage_inlineWrapper}>
+                        <Setting label={"User id"} value={user.uid} />
+                        <Setting label={"Email"} value={user.email} />
+                        <Setting
+                            label={"Your name"}
+                            value={user.displayName}
+                            onClick={() => {
+                                setSettingsParams({
+                                    type: "displayName",
+                                    value: user.displayName,
+                                });
+                            }}
+                        />
+                        <Setting
+                            label={"City"}
+                            value={user.city}
+                            onClick={() => {
+                                setSettingsParams({
+                                    type: "city",
+                                    value: user.city ?? "",
+                                });
+                            }}
+                        />
+                    </div>
+                    <SettingsModal
+                        settingsParams={settingsParams}
+                        onClose={onClose}
+                    />
+                    <ImgLoadModal visible={imgModalVisible} onClose={onClose} />
+                </div>
             </div>
-            <SettingsModal settingsParams={settingsParams} onClose={onClose} />
-            <ImgLoadModal visible={imgModalVisible} onClose={onClose} />
         </div>
     );
 };

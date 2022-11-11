@@ -1,5 +1,12 @@
+.header_container {
+    @apply flex justify-between w-full;
+}
+
 .header__left {
     @apply flex items-center;
+}
+.header__left_logo {
+    @apply cursor-pointer;
 }
 
 .header__left img {
@@ -10,7 +17,7 @@
     @apply hidden;
 }
 .header__right_links {
-    @apply md:flex md:items-center;
+    @apply lg:flex md:items-center;
 }
 .header__left_logo {
     @apply relative z-10 text-xl;

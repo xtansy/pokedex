@@ -1,13 +1,20 @@
 import { Link } from "react-router-dom";
+
 import { ROUTES } from "../../../../../utils/constants";
-import { Typography } from "../../../../Typography/Typography";
+import { Typography, ThemeSwitcher } from "../../../../";
+import { useTheme } from "../../../../../utils/contexts";
+
 import styles from "./DesktopMenu.module.css";
 
 export const DesktopMenu = () => {
     return (
-        <>
+        <div className={styles.header_container}>
             <div className={styles.header__left}>
-                <Typography>PokemonBase</Typography>
+                <Link to={ROUTES.POKEMONS}>
+                    <Typography className={styles.header__left_logo}>
+                        PokemonBase
+                    </Typography>
+                </Link>
             </div>
             <div className={styles.header__right}>
                 <ul className={styles.header__right_links}>
@@ -36,8 +43,11 @@ export const DesktopMenu = () => {
                             <Link to={ROUTES.USERS}>Users</Link>
                         </Typography>
                     </li>
+                    <li>
+                        <ThemeSwitcher />
+                    </li>
                 </ul>
             </div>
-        </>
+        </div>
     );
 };

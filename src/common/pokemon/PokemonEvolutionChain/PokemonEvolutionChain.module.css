@@ -1,5 +1,5 @@
 .evolution {
-    @apply flex items-center justify-between flex-wrap;
+    @apply flex items-center justify-between flex-wrap gap-2;
 }
 .evolution_title {
     @apply mt-10 text-3xl capitalize font-bold  mb-2;

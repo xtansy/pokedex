@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import "./assets/css/global.css";
 import App from "./App";
-import { StoreProvider } from "./utils/contexts";
+import { StoreProvider, ThemeProvider } from "./utils/contexts";
 
 const queryClient = new QueryClient();
 
@@ -15,9 +15,11 @@ const root = ReactDOM.createRoot(
 root.render(
     <BrowserRouter>
         <QueryClientProvider client={queryClient}>
-            <StoreProvider>
-                <App />
-            </StoreProvider>
+            <ThemeProvider>
+                <StoreProvider>
+                    <App />
+                </StoreProvider>
+            </ThemeProvider>
         </QueryClientProvider>
     </BrowserRouter>
 );

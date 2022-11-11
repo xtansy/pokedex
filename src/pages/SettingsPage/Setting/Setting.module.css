@@ -8,5 +8,15 @@
     @apply text-slate-400;
 }
 .setting_value {
-    @apply font-bold;
+    @apply font-bold text-sm;
+}
+
+:global(.dark) .setting {
+    @apply bg-slate-800;
+    @apply text-slate-300;
+}
+@screen md {
+    .setting_value {
+        @apply text-lg;
+    }
 }

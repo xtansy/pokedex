@@ -32,36 +32,35 @@ export const PokemonsPage = () => {
     if (isLoading || !pokemons) return null;
 
     return (
-        <div className="container mt-10">
-            <div className="flex justify-between flex-wrap">
-                {pokemons.map((item, i) => {
-                    const id = i + 1;
-                    return (
-                        <div key={i}>
-                            <div
-                                onClick={() => setPokemonId(id)}
-                                // className="relative"
-                            >
-                                <div className={styles.pokemon_infoblock}>
-                                    <p>{getPokemonId(id)}</p>
-                                    <h2>{item.name}</h2>
+        <div className={styles.pokemons_wrapper}>
+            <div className="container">
+                <div className={styles.pokemons}>
+                    {pokemons.map((item, i) => {
+                        const id = i + 1;
+                        return (
+                            <div key={i}>
+                                <div onClick={() => setPokemonId(id)}>
+                                    <div className={styles.pokemon_infoblock}>
+                                        <p>{getPokemonId(id)}</p>
+                                        <h2>{item.name}</h2>
+                                    </div>
                                 </div>
-                            </div>
-                            {/* {pokemonId === id && (
+                                {/* {pokemonId === id && (
                                 <PokemonInfo
                                     onClose={() => setPokemonId(null)}
                                     id={id}
                                 />
                             )} */}
-                        </div>
-                    );
-                })}
-                <PokemonModal
-                    onClose={onClosePokemonModal}
-                    visible={!!pokemonId}
-                    id={pokemonId}
-                />
-                <div ref={ref} />
+                            </div>
+                        );
+                    })}
+                    <PokemonModal
+                        onClose={onClosePokemonModal}
+                        visible={!!pokemonId}
+                        id={pokemonId}
+                    />
+                    <div ref={ref} />
+                </div>
             </div>
         </div>
     );

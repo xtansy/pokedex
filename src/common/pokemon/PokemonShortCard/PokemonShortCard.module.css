@@ -5,3 +5,8 @@
 .shortCard_active {
     @apply border-orange-300;
 }
+:global(.dark) .shortCard {
+    @apply bg-slate-800;
+    @apply text-slate-300;
+    @apply border-slate-300;
+}

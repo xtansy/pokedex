@@ -4,3 +4,8 @@
 .pokemonModalContent_img img {
     @apply w-2/3;
 }
+
+:global(.dark) .pokemonModalContent {
+    @apply bg-slate-800;
+    @apply text-slate-300;
+}

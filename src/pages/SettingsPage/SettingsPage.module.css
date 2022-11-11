@@ -1,9 +1,10 @@
 .settingsPage {
-    @apply flex flex-col items-center pl-20 pr-20 mt-10;
+    @apply pt-10 h-screen;
 }
-.settingsPage_imgWrapper {
-    @apply flex items-center justify-center;
+.settingsPage_content {
+    @apply flex flex-col items-center;
 }
+
 .settingsPage_imgWrapper_img {
     display: block;
     overflow: hidden;
@@ -21,4 +22,19 @@
 }
 .settingsPage_inlineWrapper > *:not(:last-child) {
     @apply mb-4;
+}
+
+:global(.dark) .settingsPage {
+    @apply bg-slate-800;
+    @apply text-slate-300;
+}
+:global(.dark) .settingsPage_inlineWrapper {
+    @apply border border-2 border-slate-300;
+    @apply bg-slate-800;
+    @apply text-slate-300;
+}
+@screen md {
+    .settingsPage_inlineWrapper {
+        @apply w-fit;
+    }
 }

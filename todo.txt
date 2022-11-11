@@ -1,0 +1,8 @@
+TODO: 
+
+1. Create Spinner component
+2. Adaptive auth page + maybe add dark mode
+3. Replace all h1,p,h2.. to Typography
+4. Delete unused hooks 
+5. Add some margin (burger menu)
+6. Add Logo and icons for change photo

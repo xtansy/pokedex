@@ -1,3 +1,4 @@
+type Theme = "dark" | "light";
 interface SettingsParamsProps {
     type: keyof Pick<User, "displayName" | "city">;
     value: string;

@@ -1,12 +1,27 @@
 .modal_container {
-    @apply fixed z-30 bg-white p-7 bottom-0 w-full bg-white shadow-blue-500/50 border rounded-xl;
-}
-.modal_overlay {
-    @apply fixed w-screen h-screen bg-black opacity-30 top-0 z-20 left-0;
+    @apply fixed z-30 bg-white p-7 bottom-0 shadow-blue-500/50 border rounded-xl w-full;
 }
 .modal {
-    @apply absolute h-screen w-screen hidden;
+    /* @apply absolute h-screen w-screen hidden; */
+    @apply absolute hidden w-full;
 }
+
 .modal_active {
     @apply block;
+}
+@screen sm {
+    .modal_container {
+        @apply left-1/2 top-1/2 h-max w-1/3;
+        transform: translate(-50%, -50%);
+    }
+}
+
+:global(.dark) .modal_container {
+    @apply bg-slate-800;
+    @apply text-slate-300;
+    @apply border-slate-300;
+}
+
+.modal_overlay {
+    @apply fixed w-screen h-screen bg-black opacity-30 top-0 z-20 left-0;
 }
