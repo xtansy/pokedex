@@ -12,11 +12,9 @@
     @apply text-3xl;
 }
 .page_img {
-    @apply w-full;
+    @apply w-full flex justify-center;
 }
-.page_img img {
-    @apply h-[300px] my-0 mx-auto;
-}
+
 .page_pokemon {
     margin: 0 auto;
     @apply w-full;
@@ -28,6 +26,6 @@
 
 @screen md {
     .page_pokemon {
-        @apply w-fit;
+        @apply w-1/2;
     }
 }

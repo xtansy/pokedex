@@ -1,0 +1,3 @@
+.content {
+    @apply flex justify-center items-center w-[615px] h-[550px];
+}

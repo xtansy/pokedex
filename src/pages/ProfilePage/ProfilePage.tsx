@@ -10,7 +10,7 @@ import {
 } from "../../common";
 
 export const ProfilePage = () => {
-    const { user, logoutClearStore } = useStore();
+    const { user } = useStore();
 
     const pokemons = user.pokemons;
 
@@ -18,7 +18,6 @@ export const ProfilePage = () => {
 
     const onClickLogout = () => {
         logout.mutate({});
-        logoutClearStore();
     };
 
     return (

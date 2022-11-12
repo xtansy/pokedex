@@ -4,6 +4,8 @@ import { Button, ModalProps, PokemonTypes } from "../../../";
 import { useRequestPokemonQuery } from "../../../../utils/api";
 import { useUpdateUser } from "../../../../utils/firebase/hooks";
 import { useStore } from "../../../../utils/contexts";
+import { Image } from "../../../";
+import { LoadingContentModal } from "../../LoadingContentModal/LoadingContentModal";
 
 import styles from "./PokemonContentModal.module.css";
 
@@ -28,7 +30,7 @@ export const PokemonContentModal: React.FC<PokemonContentModalProps> = ({
 
     const navigate = useNavigate();
 
-    if (isLoading || !data) return null;
+    if (isLoading || !data) return <LoadingContentModal />;
 
     const pokemon = data.data;
 
@@ -57,7 +59,8 @@ export const PokemonContentModal: React.FC<PokemonContentModalProps> = ({
         <div className={styles.pokemonModalContent}>
             <h2>{pokemon.name}</h2>
             <div className={styles.pokemonModalContent_img}>
-                <img
+                <Image
+                    variant="pokemon"
                     src={String(pokemon.sprites.front_default)}
                     alt="pokemon"
                 />

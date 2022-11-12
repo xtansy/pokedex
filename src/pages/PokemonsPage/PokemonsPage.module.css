@@ -13,6 +13,7 @@
 .pokemons {
     @apply flex justify-center flex-wrap;
 }
+
 :global(.dark) .pokemons_wrapper {
     @apply bg-slate-800;
     @apply text-slate-300;

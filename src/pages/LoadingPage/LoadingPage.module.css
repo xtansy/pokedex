@@ -1,0 +1,7 @@
+.loading_wrapper {
+    @apply h-screen w-full flex justify-center items-center;
+}
+:global(.dark) .loading_wrapper {
+    @apply bg-slate-800;
+    @apply text-slate-300;
+}

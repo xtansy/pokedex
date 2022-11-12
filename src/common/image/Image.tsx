@@ -6,7 +6,12 @@ type ImgReactProps = React.ComponentPropsWithRef<"img">;
 
 interface ImageProps extends Omit<ImgReactProps, "src"> {
     src?: string | null;
-    variant?: "pokemon" | "small-pokemon" | "avatar" | "small-round-avatar";
+    variant?:
+        | "pokemon"
+        | "small-pokemon"
+        | "avatar"
+        | "small-round-avatar"
+        | "logo";
 }
 
 const NOT_FIND_IMAGE = "http://dummyimage.com/120";

@@ -3,7 +3,8 @@ import { useInView } from "react-intersection-observer";
 
 import { useRequestPokemonInfiniteQuery } from "../../utils/api/hooks/pokemon";
 import { getPokemonId } from "../../utils/helpers";
-import { PokemonInfo, PokemonModal } from "../../common";
+import { Spinner, PokemonModal } from "../../common";
+import { LoadingPage } from "../";
 
 import styles from "./PokemonsPage.module.css";
 
@@ -29,7 +30,7 @@ export const PokemonsPage = () => {
         }
     }, [inView]);
 
-    if (isLoading || !pokemons) return null;
+    if (isLoading || !pokemons) return <LoadingPage />;
 
     return (
         <div className={styles.pokemons_wrapper}>

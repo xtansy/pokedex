@@ -1,8 +1,5 @@
 .pokemonModalContent_img {
-    @apply flex justify-center;
-}
-.pokemonModalContent_img img {
-    @apply w-2/3;
+    @apply flex justify-center w-full h-full;
 }
 
 :global(.dark) .pokemonModalContent {

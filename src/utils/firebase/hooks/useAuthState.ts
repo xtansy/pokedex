@@ -20,6 +20,7 @@ export const useAuthState = () => {
     } = usePromise<User>();
 
     useEffect(() => {
+        setLoading(true);
         const listener = onAuthStateChanged(
             auth,
             async (user) => {

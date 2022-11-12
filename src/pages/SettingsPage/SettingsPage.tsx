@@ -23,11 +23,25 @@ export const SettingsPage = () => {
             <div className="container">
                 <div className={styles.settingsPage_content}>
                     <Image
-                        onClick={() => setImgModalVisible(true)}
                         variant="small-round-avatar"
                         src={user.photoURL}
                         alt="userPhoto"
                     />
+                    <svg
+                        onClick={() => setImgModalVisible(true)}
+                        className="w-8 h-8 text-blue-500 mt-[-10px] cursor-pointer animate-pulse"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 11l7-7 7 7M5 19l7-7 7 7"
+                        ></path>
+                    </svg>
                     <div className={styles.settingsPage_inlineWrapper}>
                         <Setting label={"User id"} value={user.uid} />
                         <Setting label={"Email"} value={user.email} />

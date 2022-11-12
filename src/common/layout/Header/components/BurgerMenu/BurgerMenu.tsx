@@ -14,7 +14,7 @@ import styles from "./BurgerMenu.module.css";
 export const BurgerMenu = () => {
     const [isOpen, setIsOpen] = useState(true);
 
-    const { user, logoutClearStore } = useStore();
+    const { user } = useStore();
 
     const logout = useLogoutMutation();
 
@@ -27,7 +27,6 @@ export const BurgerMenu = () => {
     };
     const onClickLogout = () => {
         logout.mutate({});
-        logoutClearStore();
     };
 
     return (

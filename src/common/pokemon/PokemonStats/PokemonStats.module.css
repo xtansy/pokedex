@@ -4,3 +4,6 @@
 .pokemon_stats_ul li {
     @apply mb-2 border-b-2;
 }
+.pokemon_stats {
+    @apply mb-7;
+}

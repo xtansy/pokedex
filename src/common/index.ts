@@ -8,3 +8,5 @@ export * from "./layout";
 export * from "./Typography/Typography";
 export * from "./image/Image";
 export * from "./themeSwitcher/ThemeSwitcher";
+export * from "./Preloader/Preloader";
+export * from "./Spinner/Spinner";

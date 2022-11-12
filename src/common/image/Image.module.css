@@ -1,8 +1,15 @@
 .pokemon {
-    @apply w-full;
+    @apply w-full h-full flex justify-center;
 }
+
+@screen lg {
+    .pokemon {
+        @apply w-72 h-72;
+    }
+}
+
 .pokemon img {
-    @apply w-[300px];
+    @apply w-full h-full;
 }
 
 .small-pokemon img {
@@ -17,4 +24,7 @@
 }
 .small-round-avatar img {
     @apply w-full h-full object-cover rounded-full;
+}
+.logo {
+    @apply w-1/4;
 }

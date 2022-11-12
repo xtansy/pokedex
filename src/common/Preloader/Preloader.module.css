@@ -1,0 +1,10 @@
+.preloader {
+    @apply flex flex-col justify-center items-center w-full h-full;
+}
+
+.wrapper {
+    @apply h-screen bg-slate-800;
+}
+.img_anim {
+    @apply animate-pulse;
+}

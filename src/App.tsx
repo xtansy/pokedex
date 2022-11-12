@@ -9,9 +9,11 @@ import {
     SettingsPage,
     UsersPage,
 } from "./pages";
-import { Layout } from "./common";
+import { Preloader, Layout } from "./common";
 import { ROUTES } from "./utils/constants";
 import { useStore } from "./utils/contexts";
+import logo from "./assets/img/logo2.png";
+import { useAuthState } from "./utils/firebase/hooks";
 
 export const AuthApp = () => {
     return (
@@ -23,9 +25,12 @@ export const AuthApp = () => {
 };
 
 const App = () => {
+    const { isLoading } = useAuthState();
     const {
         session: { isAuth },
     } = useStore();
+
+    if (isLoading) return <Preloader />;
 
     return (
         <>

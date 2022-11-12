@@ -11,6 +11,7 @@ import {
     Image,
 } from "../../common";
 import { getPokemonId } from "../../utils/helpers";
+import { LoadingPage } from "../";
 
 import styles from "./PokemonPage.module.css";
 import { Button } from "../../common/buttons";
@@ -38,7 +39,7 @@ export const PokemonPage = () => {
         );
 
     if (!pokemonQueryData || pokemonSpeciesLoading || !pokemonSpecies)
-        return null;
+        return <LoadingPage />;
 
     const chainID = pokemonSpecies.data.evolution_chain.url
         .replace("https://pokeapi.co/api/v2/evolution-chain/", "")
