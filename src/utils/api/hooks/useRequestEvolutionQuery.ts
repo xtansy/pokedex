@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { requestEvolution } from "../../../requests";
+import { requestEvolution } from "../requests";
 
 interface UseRequestEvolutionQueryParams {
     id: Pokemon["id"];

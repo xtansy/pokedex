@@ -1,4 +1,4 @@
 TODO: 
 
 1. Delete unused hooks 
-2. Add icons for change photo
+

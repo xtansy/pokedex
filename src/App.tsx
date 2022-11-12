@@ -39,10 +39,10 @@ const App = () => {
                 <Routes>
                     <Route element={<Layout />}>
                         <Route path="*" element={<PokemonsPage />} />
-                        <Route
+                        {/* <Route
                             path={ROUTES.POKEDEX}
                             element={<PokedexPage />}
-                        />
+                        /> */}
                         <Route
                             path={ROUTES.POKEMON}
                             element={<PokemonPage />}

@@ -15,6 +15,7 @@ interface PokemonInfoProps {
 
 const MAX_POKEMON_TEAM_COUNT = 6;
 
+// UNUSED!
 export const PokemonInfo: React.FC<PokemonInfoProps> = ({ id, onClose }) => {
     const { session, user } = useStore();
 

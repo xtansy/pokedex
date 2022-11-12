@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
-import { useRequestPokemonInfiniteQuery } from "../../utils/api/hooks/pokemon";
+import { useRequestPokemonInfiniteQuery } from "../../utils/api";
 import { getPokemonId } from "../../utils/helpers";
-import { Spinner, PokemonModal } from "../../common";
+import { PokemonModal } from "../../common";
 import { LoadingPage } from "../";
 
 import styles from "./PokemonsPage.module.css";

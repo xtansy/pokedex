@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { requestPokemonSpecies } from "../../requests/";
+import { requestPokemonSpecies } from "../requests/";
 
 interface UseRequestSpeciesQueryParams {
     id: number;

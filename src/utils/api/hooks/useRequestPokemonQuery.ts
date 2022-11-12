@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { requestPokemon } from "../../../requests";
+import { requestPokemon } from "../requests";
 
 interface UseRequestPokemonQueryParams {
     idOrName: number | Pokemon["name"];

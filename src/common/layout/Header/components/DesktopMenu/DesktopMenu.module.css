@@ -13,16 +13,16 @@
     @apply mr-5;
 }
 
-.header__right_links {
-    @apply hidden;
-}
-.header__right_links {
-    @apply lg:flex md:items-center;
-}
 .header__left_logo {
     @apply relative z-10 text-xl;
 }
 
-.header__right_links li {
-    @apply ml-5;
+.header__right {
+    @apply hidden;
+}
+
+@screen lg {
+    .header__right {
+        @apply flex items-center;
+    }
 }

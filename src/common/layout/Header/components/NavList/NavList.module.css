@@ -1,0 +1,16 @@
+.nav_ul {
+    @apply flex flex-col;
+}
+
+.nav_ul li {
+    @apply ml-0;
+}
+
+@screen lg {
+    .nav_ul {
+        @apply flex flex-row items-center;
+    }
+    .nav_ul li {
+        @apply ml-5;
+    }
+}

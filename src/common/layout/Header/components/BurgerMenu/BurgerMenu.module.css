@@ -20,11 +20,14 @@
 .burgerMenu_block_nav {
     @apply self-start mt-7;
 }
+.burgerMenu_block_nav_title {
+    @apply text-3xl mb-4;
+}
 .burgerMenu_block_nav ul {
     @apply flex flex-col items-start;
 }
 .burgerMenu_block_nav ul li {
-    @apply mb-2;
+    @apply mb-4;
 }
 
 :global(.dark) .burgerMenu {

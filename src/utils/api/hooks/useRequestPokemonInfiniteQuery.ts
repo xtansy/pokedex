@@ -1,19 +1,5 @@
-import { requestPokemons, requestPokemon } from "../../requests";
-import { useInfiniteQuery, useQueries } from "@tanstack/react-query";
-
-interface UseRequestPokemonQueriesProps {
-    offset: number;
-}
-export const useRequestPokemonQueries = ({
-    offset,
-}: UseRequestPokemonQueriesProps) => {
-    return useQueries({
-        queries: Array.from({ length: offset }).map((_, index) => ({
-            queryKey: ["pokemon", index + 1],
-            queryFn: () => requestPokemon({ params: { idOrName: index + 1 } }),
-        })),
-    });
-};
+import { requestPokemons } from "../requests";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 const REQUEST_POKEMONS_LIMIT = 50;
 export const useRequestPokemonInfiniteQuery = () => {
