@@ -1,5 +1,7 @@
 # :smiley_cat: Pikachu app Ϟ(๑⚈ ․̫ ⚈๑)⋆
 
+## :globe_with_meridians: [Деплой](https://pokedex-xtansy.vercel.app/auth)
+
 ## :clipboard: Функционал
 
 -   Можно собрать команду покемонов
